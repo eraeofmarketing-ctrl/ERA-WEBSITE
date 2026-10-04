@@ -24,7 +24,7 @@ h2{font-size:clamp(30px,4.4vw,52px);line-height:1.05;letter-spacing:-.03em;font-
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 26px;border:1.5px solid transparent;border-radius:2px;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
 .sig{background:var(--sig);color:var(--ink)}.inv{background:var(--fg);color:var(--bg)}.line{border-color:var(--fg)}
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--rule)}
-.nav .w{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.nav .w{display:flex;align-items:center;justify-content:space-between;height:68px;gap:14px}
 .nav nav{display:flex;gap:28px;font-size:15px;margin-left:auto}.nav nav a{text-decoration:none;color:var(--mute)}.nav nav a:hover{color:var(--fg)}
 .nav .btn{padding:10px 18px;font-size:14px}
 .logo{display:block;width:72px;height:20px;fill:currentColor;flex:none}
@@ -107,6 +107,27 @@ footer a{display:block;text-decoration:none;padding:3px 0}footer b{display:block
 .lc b{font-size:16px}.lc .mu{color:var(--mute)}
 .lc select,.lc textarea{margin-top:8px}
 .lc .del{margin-top:8px;background:none;border:0;color:var(--mute);text-decoration:underline;cursor:pointer;font-size:13px;padding:0}
+.ico{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--fg);border-radius:2px;background:none;color:var(--fg);cursor:pointer;position:relative;flex:none}
+.ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8}
+.ico.on::after{content:"";position:absolute;top:-5px;right:-5px;width:11px;height:11px;border-radius:50%;background:var(--sig);border:2px solid var(--bg)}
+.ov{position:fixed;inset:0;z-index:70;background:rgba(26,26,26,.6);display:flex;align-items:center;justify-content:center;padding:16px}
+.md{position:relative;background:var(--bg);color:var(--fg);border:1px solid var(--fg);width:min(460px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:28px 24px}
+.md.wide{width:min(620px,100%)}
+.md .x{position:absolute;top:6px;right:10px;background:none;border:0;color:inherit;font-size:30px;line-height:1;cursor:pointer}
+.md .tabs{margin:8px 0 0}
+.md form{background:none;border:0;padding:20px 0 0}
+.md h3{font-size:24px;letter-spacing:-.02em;padding-right:28px}
+.md .mu{color:var(--mute);font-size:14px}
+.md .lk{background:none;border:0;padding:0;color:var(--mute);text-decoration:underline;cursor:pointer;font:inherit;font-size:14px}
+#aue{color:var(--sig);font-size:14px;min-height:0;margin-top:14px;font-weight:600}
+#aue:empty{display:none}
+.rq{border:1px solid var(--rule);padding:16px;margin-top:12px;background:var(--card)}
+.rq .top{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.rq b{font:700 17px Manrope,sans-serif}
+.bd{display:inline-block;padding:3px 10px;font:700 12px Manrope,sans-serif;border:1.5px solid var(--fg);white-space:nowrap}
+.bd.hot{background:var(--sig);border-color:var(--sig);color:var(--ink)}
+.trk{display:flex;gap:4px;margin:14px 0 8px}.trk i{flex:1;height:4px;background:var(--rule)}.trk i.on{background:var(--sig)}
+.mrh{display:flex;gap:8px;margin:16px 0 4px;flex-wrap:wrap}.mrh .btn{padding:10px 16px;font-size:14px}
 </style>
 </head>
 <body id="top">
@@ -116,6 +137,7 @@ footer a{display:block;text-decoration:none;padding:3px 0}footer b{display:block
 <a href="#top" aria-label="ERA home"><svg class="logo" role="img" aria-label="ERA"><use href="#era"/></svg></a>
 <nav><a href="#services">Services</a><a href="#packages">Packages</a><a href="#faq">FAQ</a></nav>
 <a class="btn inv" href="#consult">Free consultation</a>
+<button class="ico" id="nacc" type="button" aria-label="Sign in" title="Sign in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></button>
 </div></header>
 
 <main>
@@ -230,6 +252,23 @@ footer a{display:block;text-decoration:none;padding:3px 0}footer b{display:block
 </div></footer>
 <div class="bar"><a class="btn sig" href="#consult">Book a free consultation</a></div>
 
+<div class="ov" id="au" hidden><div class="md" role="dialog" aria-modal="true" aria-label="Your ERA account">
+<button class="x" id="auc" type="button" aria-label="Close">&times;</button>
+<div class="tabs" id="au-tabs" role="tablist"><button id="ti" role="tab" aria-selected="true" type="button">Sign in</button><button id="tu" role="tab" aria-selected="false" type="button">Create account</button></div>
+<div id="aue" role="alert"></div>
+<form id="au-in"><label for="si-e">Email</label><input id="si-e" type="email" required autocomplete="username"><label for="si-p">Password</label><input id="si-p" type="password" required autocomplete="current-password"><button class="btn sig" type="submit">Sign in</button><p style="margin-top:14px"><button class="lk" id="forgot" type="button">Forgot your password?</button></p></form>
+<form id="au-up" hidden><label for="su-n">Full name</label><input id="su-n" required autocomplete="name"><label for="su-e">Email</label><input id="su-e" type="email" required autocomplete="email"><label for="su-ph">WhatsApp number (optional)</label><input id="su-ph" type="tel" autocomplete="tel"><label for="su-p">Password (8 characters or more)</label><input id="su-p" type="password" required minlength="8" autocomplete="new-password"><button class="btn sig" type="submit">Create my account</button><p class="mu" style="margin-top:14px">One account to follow every request you send to ERA.</p></form>
+<form id="au-rs" hidden><h3>Reset your password</h3><p class="mu" style="margin-top:6px">We will email you a link to choose a new one.</p><label for="rs-e" style="margin-top:16px">Email</label><input id="rs-e" type="email" required autocomplete="username"><button class="btn sig" type="submit">Send reset link</button><p style="margin-top:14px"><button class="lk" id="back" type="button">Back to sign in</button></p></form>
+<form id="au-np" hidden><h3>Choose a new password</h3><label for="np-p" style="margin-top:16px">New password (8 characters or more)</label><input id="np-p" type="password" required minlength="8" autocomplete="new-password"><button class="btn sig" type="submit">Save password</button></form>
+<div id="au-ok" hidden style="padding-top:20px"><h3 id="okt"></h3><p class="mu" id="oks" style="margin-top:8px"></p><button class="btn line" id="okc" type="button" style="margin-top:20px">Close</button></div>
+</div></div>
+<div class="ov" id="mr" hidden><div class="md wide" role="dialog" aria-modal="true" aria-label="My requests">
+<button class="x" id="mrc" type="button" aria-label="Close">&times;</button>
+<h3 id="mrn"></h3><p class="mu" id="mre"></p>
+<div class="mrh"><button class="btn sig" id="mrnew" type="button">New request</button><button class="btn line" id="mrout" type="button">Sign out</button></div>
+<p class="mu" id="mrs" style="margin-top:12px"></p>
+<div id="mrl"></div>
+</div></div>
 <aside id="adm" role="dialog" aria-label="ERA admin panel" hidden>
 <div class="ah"><b>ERA Admin</b><span id="aact" hidden><button class="btn sig" id="asave" type="button">Save changes</button><button class="btn line" id="aout" type="button">Sign out</button></span><button class="x" id="acl" type="button" aria-label="Close admin panel">&times;</button></div>
 <form id="alog" class="ab" hidden>
@@ -290,9 +329,11 @@ f.addEventListener('submit',async e=>{
   const q=new URLSearchParams(location.search);
   const row={name:d.get('name'),email:d.get('email'),phone:d.get('phone'),website:d.get('site')||null,monthly_spend:d.get('spend'),main_problem:d.get('problem'),package_interest:d.get('pkg'),utm_source:q.get('utm_source'),utm_medium:q.get('utm_medium'),utm_campaign:q.get('utm_campaign'),page_url:location.href.slice(0,500)};
   try{
-    const r=await fetch(API+'/rest/v1/leads',{method:'POST',headers:Object.assign(H(),{Prefer:'return=minimal'}),body:JSON.stringify(row)});
+    const tk=await tok();if(tk&&S&&S.uid)row.user_id=S.uid;
+    const r=await fetch(API+'/rest/v1/leads',{method:'POST',headers:Object.assign(H(tk),{Prefer:'return=minimal'}),body:JSON.stringify(row)});
     if(!r.ok)throw new Error(r.status);
-    f.reset();say('Thanks, '+row.name+'. We have your request and will reply within one business day.',t);
+    f.reset();prefill();say('Thanks, '+row.name+'. We have your request and will reply within one business day.',t);
+    if(S)ok.append(' ',mk('a',{href:'#',textContent:'View my requests',style:'font-weight:600',onclick:ev=>{ev.preventDefault();openMR()}}));
   }catch(err){say('We could not save your request. Please send it on WhatsApp instead.',t)}
   btn.disabled=false;btn.textContent=label;
 });
@@ -300,11 +341,11 @@ f.addEventListener('submit',async e=>{
 /* ---- admin: session ---- */
 let S=null;try{S=JSON.parse(localStorage.getItem('era_s'))}catch(e){}
 const keep=s=>{S=s;try{s?localStorage.setItem('era_s',JSON.stringify(s)):localStorage.removeItem('era_s')}catch(e){}};
-const mkS=(j,email)=>({at:j.access_token,rt:j.refresh_token,exp:Math.floor(Date.now()/1000)+(j.expires_in||3600),email});
+const mkS=(j,p)=>{const u=j.user||{},m=u.user_metadata||{};return{at:j.access_token,rt:j.refresh_token,exp:Math.floor(Date.now()/1000)+(j.expires_in||3600),email:u.email||(p&&p.email)||'',uid:u.id||(p&&p.uid)||'',name:m.full_name||(p&&p.name)||'',phone:m.phone||(p&&p.phone)||''}};
 async function tok(){
   if(!S)return null;if(S.exp-60>Date.now()/1000)return S.at;
   try{const r=await fetch(API+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:H(),body:JSON.stringify({refresh_token:S.rt})});
-    if(!r.ok){keep(null);return null}keep(mkS(await r.json(),S.email));return S.at}catch(e){return null}
+    if(!r.ok){keep(null);return null}keep(mkS(await r.json(),S));return S.at}catch(e){return null}
 }
 async function isAdmin(t){try{const r=await fetch(API+'/rest/v1/rpc/is_admin',{method:'POST',headers:H(t),body:'{}'});return r.ok&&(await r.json())===true}catch(e){return false}}
 const st=(m,bad)=>{$('ast').textContent=m||'';$('ast').style.color=bad?'var(--sig)':'inherit'};
@@ -321,7 +362,7 @@ $('acl').onclick=()=>{$('adm').hidden=true};
 async function openAdm(){
   $('adm').hidden=false;st('');
   const t=await tok();
-  if(t&&await isAdmin(t)){showEd()}else{if(t)keep(null);showLogin()}
+  if(t&&await isAdmin(t)){showEd()}else{showLogin()}
 }
 function showLogin(){$('alog').hidden=false;$('aed').hidden=true;$('aact').hidden=true;$('aem').focus()}
 function showEd(){$('alog').hidden=true;$('aed').hidden=false;$('aact').hidden=false;buildEd();tab('c')}
@@ -333,12 +374,12 @@ $('alog').addEventListener('submit',async e=>{
     if(!r.ok){$('aer').textContent='Wrong email or password.';return}
     const j=await r.json();
     if(!await isAdmin(j.access_token)){$('aer').textContent='This account does not have admin access.';return}
-    keep(mkS(j,email));$('apw').value='';showEd();
+    keep(mkS(j));navUI();$('apw').value='';showEd();
   }catch(err){$('aer').textContent='Could not reach the server.'}
 });
 $('aout').onclick=async()=>{
   try{if(S)await fetch(API+'/auth/v1/logout',{method:'POST',headers:H(S.at)})}catch(e){}
-  keep(null);$('adm').hidden=true;
+  keep(null);navUI();$('adm').hidden=true;
 };
 
 /* ---- admin: content editor ---- */
@@ -401,6 +442,93 @@ $('acsv').onclick=()=>{
   const csv=[cols.join(',')].concat(L.map(l=>cols.map(c=>q(l[c])).join(','))).join('\n');
   const a=mk('a',{href:URL.createObjectURL(new Blob([csv],{type:'text/csv'})),download:'era-leads.csv'});document.body.append(a);a.click();a.remove();
 };
+/* ---- customer accounts ---- */
+const FR={new:'Received',contacted:'In touch',call_booked:'Call booked',proposal_sent:'Proposal sent',won:'Active',lost:'Closed'};
+const FD={new:'We received your request and will reply within one business day.',contacted:'Our team has reached out. Check your WhatsApp or email.',call_booked:'Your consultation call is booked.',proposal_sent:'Your written next step has been sent to you.',won:'You are an active ERA client.',lost:'This request is closed. You can send a new one anytime.'};
+const FLOW=['new','contacted','call_booked','proposal_sent','won'];
+const errMsg=j=>(j&&(j.msg||j.error_description||j.message))||'Something went wrong. Please try again.';
+async function call(path,body,tk,method){const r=await fetch(API+path,{method:method||'POST',headers:H(tk),body:JSON.stringify(body)});let j={};try{j=await r.json()}catch(e){}return{r,j}}
+function prefill(){if(!S)return;[['n',S.name],['e',S.email],['p',S.phone]].forEach(([id,v])=>{const el=$(id);if(el&&!el.value&&v)el.value=v})}
+function navUI(){const b=$('nacc');b.classList.toggle('on',!!S);b.setAttribute('aria-label',S?'My requests':'Sign in');b.title=S?(S.name||S.email||''):'Sign in';prefill()}
+async function claim(){const t=await tok();if(t)try{await fetch(API+'/rest/v1/rpc/claim_my_leads',{method:'POST',headers:H(t),body:'{}'})}catch(e){}}
+const PN=['in','up','rs','np','ok'];
+function pane(p){PN.forEach(x=>$('au-'+x).hidden=x!==p);$('au-tabs').hidden=!(p==='in'||p==='up');$('ti').setAttribute('aria-selected',p==='in');$('tu').setAttribute('aria-selected',p==='up');$('aue').textContent=''}
+function openAu(p){$('au').hidden=false;pane(p||'in')}
+function okp(t,s){$('au').hidden=false;pane('ok');$('okt').textContent=t;$('oks').textContent=s}
+$('nacc').onclick=()=>S?openMR():openAu('in');
+$('ti').onclick=()=>pane('in');$('tu').onclick=()=>pane('up');
+$('forgot').onclick=()=>pane('rs');$('back').onclick=()=>pane('in');
+$('auc').onclick=$('okc').onclick=()=>{$('au').hidden=true};
+$('mrc').onclick=()=>{$('mr').hidden=true};
+[$('au'),$('mr')].forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.hidden=true}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('au').hidden=true;$('mr').hidden=true}});
+const busy=(form,on)=>{const b=form.querySelector('button[type=submit]');b.disabled=on};
+
+$('au-in').addEventListener('submit',async e=>{
+  e.preventDefault();busy(e.target,1);$('aue').textContent='';
+  try{const {r,j}=await call('/auth/v1/token?grant_type=password',{email:$('si-e').value.trim(),password:$('si-p').value});
+    if(!r.ok){$('aue').textContent=j.error_code==='email_not_confirmed'?'Please confirm your email first. Check your inbox.':'Wrong email or password.';return}
+    keep(mkS(j));$('si-p').value='';navUI();await claim();$('au').hidden=true;openMR();
+  }catch(err){$('aue').textContent='Could not reach the server.'}finally{busy(e.target,0)}
+});
+$('au-up').addEventListener('submit',async e=>{
+  e.preventDefault();busy(e.target,1);$('aue').textContent='';
+  const email=$('su-e').value.trim();
+  try{const {r,j}=await call('/auth/v1/signup',{email,password:$('su-p').value,data:{full_name:$('su-n').value.trim(),phone:$('su-ph').value.trim()}});
+    if(!r.ok){$('aue').textContent=errMsg(j);return}
+    if(j.access_token){keep(mkS(j));navUI();await claim();$('au').hidden=true;openMR()}
+    else okp('Check your email','We sent a confirmation link to '+email+'. Confirm it, then sign in.');
+  }catch(err){$('aue').textContent='Could not reach the server.'}finally{busy(e.target,0)}
+});
+$('au-rs').addEventListener('submit',async e=>{
+  e.preventDefault();busy(e.target,1);
+  try{await call('/auth/v1/recover?redirect_to='+encodeURIComponent(location.origin+location.pathname),{email:$('rs-e').value.trim()});
+    okp('Check your email','If an account exists for that address, a reset link is on its way.');
+  }catch(err){$('aue').textContent='Could not reach the server.'}finally{busy(e.target,0)}
+});
+$('au-np').addEventListener('submit',async e=>{
+  e.preventDefault();busy(e.target,1);
+  try{const {r,j}=await call('/auth/v1/user',{password:$('np-p').value},await tok(),'PUT');
+    if(!r.ok){$('aue').textContent=errMsg(j);return}
+    $('np-p').value='';okp('Password updated','You are signed in. Open your requests any time from the account icon.');
+  }catch(err){$('aue').textContent='Could not reach the server.'}finally{busy(e.target,0)}
+});
+
+async function openMR(){
+  const t=await tok();if(!t){navUI();openAu('in');return}
+  $('mr').hidden=false;$('mrn').textContent=S.name?('Hi, '+S.name.split(' ')[0]):'My requests';$('mre').textContent=S.email||'';
+  const box=$('mrl');box.textContent='Loading...';$('mrs').textContent='';
+  const r=await fetch(API+'/rest/v1/rpc/my_requests',{method:'POST',headers:H(t),body:'{}'});
+  if(!r.ok){box.textContent='Could not load your requests ('+r.status+').';return}
+  const a=await r.json();box.replaceChildren();
+  $('mrs').textContent=a.length?a.length+' request'+(a.length===1?'':'s'):'';
+  if(!a.length){box.append(mk('p',{className:'mu',textContent:'No requests yet. Book a free consultation and it will show up here.'}));return}
+  a.forEach(l=>{
+    const cur=FLOW.indexOf(l.status),card=mk('div',{className:'rq'});
+    const title=l.package_interest&&l.package_interest!=='Not sure yet'?l.package_interest+' package':'Free consultation';
+    card.append(mk('div',{className:'top'},mk('b',{textContent:title}),mk('span',{className:'bd'+(l.status==='won'?' hot':''),textContent:FR[l.status]||l.status})),
+      mk('div',{className:'mu',textContent:new Date(l.created_at).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})+(l.monthly_spend?'  |  '+l.monthly_spend:'')}));
+    if(l.main_problem)card.append(mk('div',{className:'mu',textContent:l.main_problem}));
+    if(cur>=0){const tk=mk('div',{className:'trk'});FLOW.forEach((s,i)=>tk.append(mk('i',{className:i<=cur?'on':''})));card.append(tk)}
+    card.append(mk('div',{textContent:FD[l.status]||'',style:'font-size:14px;margin-top:'+(cur>=0?0:10)+'px'}));
+    box.append(card);
+  });
+}
+$('mrnew').onclick=()=>{$('mr').hidden=true;location.hash='consult'};
+$('mrout').onclick=async()=>{try{if(S)await fetch(API+'/auth/v1/logout',{method:'POST',headers:H(S.at)})}catch(e){}keep(null);navUI();$('mr').hidden=true};
+
+/* email confirmation / password reset links land here with a token in the URL hash */
+(async()=>{
+  const h=new URLSearchParams(location.hash.slice(1)),at=h.get('access_token'),ty=h.get('type')||'';
+  if(at&&['recovery','signup','magiclink','invite','email_change'].includes(ty)){
+    try{const r=await fetch(API+'/auth/v1/user',{headers:H(at)});
+      if(r.ok){keep(mkS({access_token:at,refresh_token:h.get('refresh_token'),expires_in:+h.get('expires_in')||3600,user:await r.json()}));
+        history.replaceState(null,'',location.pathname+location.search);navUI();claim();
+        if(ty==='recovery')openAu('np');else okp('Email confirmed','You are signed in. Your requests live under the account icon.');return}
+    }catch(e){}
+  }
+  navUI();
+})();
 </script>
 
 </body>
