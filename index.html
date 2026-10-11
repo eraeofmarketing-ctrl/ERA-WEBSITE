@@ -29,7 +29,7 @@ section{padding:96px 0;border-top:1px solid var(--rule)}
 h2{font-size:clamp(30px,4.4vw,52px);line-height:1.05;letter-spacing:-.03em;font-weight:800;max-width:15ch}
 .lead{color:var(--mute);max-width:52ch;margin-top:16px}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 26px;border:1.5px solid transparent;border-radius:2px;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
-.sig{background:var(--sig);color:var(--ink)}.inv{background:var(--fg);color:var(--bg)}.line{border-color:var(--fg)}
+.sig{background:var(--sig);color:var(--ink)}.inv{background:var(--fg);color:var(--bg)}.line{border-color:var(--fg);background:transparent;color:var(--fg)}
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--rule)}
 .nav .w{display:flex;align-items:center;justify-content:space-between;height:68px;gap:14px}
 .nav nav{display:flex;gap:28px;font-size:15px;margin-left:auto}.nav nav a{text-decoration:none;color:var(--mute)}.nav nav a:hover{color:var(--fg)}
@@ -150,6 +150,19 @@ html.intro .hero p,html.intro .hero .cta,html.intro .proof{opacity:0;transform:t
 html.intro .hero .cta{transition-delay:.15s}
 html.intro .proof{transition-delay:.3s}
 html.intro.in2 .hero p,html.intro.in2 .hero .cta,html.intro.in2 .proof{opacity:1;transform:none}
+.mdl{align-self:flex-start;background:none;border:0;padding:0;margin:0 0 16px;color:inherit;font:600 15px Inter,sans-serif;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:pointer}
+.mdl:hover{color:var(--sig)}
+.pdm{padding-bottom:0}
+.pdm .eb{font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.pdm .price{margin:6px 0 0;font-size:30px}
+.pdm .pi{font-size:17px;margin:18px 0 0}
+.pdm h4{font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:28px 0 6px}
+.pdm ol,.pdm ul{list-style:none;padding:0;margin:0}
+.pdm li{padding:12px 0;border-top:1px solid var(--rule)}
+.pdm li b{display:block;font-weight:600}
+.pdm li span{display:block;color:var(--mute);font-size:15px}
+.pdm .ft{position:sticky;bottom:0;background:var(--bg);display:flex;gap:10px;flex-wrap:wrap;padding:16px 0 calc(22px + env(safe-area-inset-bottom,0px));margin-top:24px;border-top:1px solid var(--rule)}
+.pdm .ft .btn{flex:1 1 180px}
 </style>
 </head>
 <body id="top">
@@ -220,15 +233,92 @@ html.intro.in2 .hero p,html.intro.in2 .hero .cta,html.intro.in2 .proof{opacity:1
 <div class="pk">
 <div class="pc"><h3>Foundation</h3><p class="m">For brands spending without knowing what works.</p><div class="price">EGP 15,000 <small>one-time</small></div>
 <ul><li>Funnel and spend audit</li><li>Audience and customer insights</li><li>Tracking and measurement setup</li><li>Marketing dashboard</li><li>90-day growth plan</li></ul>
+<button class="mdl" type="button" data-d="1">More details</button>
 <a class="btn line" href="#consult" data-pkg="1">Start with Foundation</a></div>
 <div class="pc hot"><h3>Growth</h3><p class="m">For brands ready to turn insight into campaigns.</p><div class="price">EGP 45,000 <small>per month</small></div>
 <ul><li>Digital strategy and channel plan</li><li>Creative and social content</li><li>Paid social and search management</li><li>Conversion optimization</li><li>Monthly report and decision call</li></ul>
+<button class="mdl" type="button" data-d="2">More details</button>
 <a class="btn sig" href="#consult" data-pkg="2">Start with Growth</a></div>
 <div class="pc"><h3>Intelligence</h3><p class="m">For brands that want one system, not five vendors.</p><div class="price">Custom <small>scoped with you</small></div>
 <ul><li>Everything in Growth</li><li>Marketing automation and CRM workflows</li><li>AI-assisted personalization</li><li>Advanced analytics and forecasting</li><li>Dedicated ERA team</li></ul>
+<button class="mdl" type="button" data-d="3">More details</button>
 <a class="btn line" href="#consult" data-pkg="3">Start with Intelligence</a></div>
 </div>
 <p class="note">Ad spend is paid directly to the platforms and is not included. Not sure which fits? The consultation will tell you.</p>
+<div class="pdx" hidden>
+<div data-pd="1">
+<p class="pi">Foundation is a four-week diagnostic. We trace your spend from first impression to enquiry, fix how it is measured, and hand you a plan your team can run, with us or without us.</p>
+<h4>Who it is for</h4>
+<p>Brands that already spend on ads or social and cannot say what is working, and brands about to start who want measurement right from day one.</p>
+<h4>What you get</h4>
+<ol>
+<li><b>Funnel and spend audit</b><span>We follow the path from first impression to enquiry or sale, find where budget leaks, and rank the fixes by impact. You get a written audit, not a slide of opinions.</span></li>
+<li><b>Audience and customer insights</b><span>Who actually buys, what triggers the decision, and what holds people back. Built from your own data, platform analytics and your sales team's conversations.</span></li>
+<li><b>Tracking and measurement setup</b><span>Conversion events, pixels and one consistent campaign naming system, so every channel reports the same way and the numbers finally agree.</span></li>
+<li><b>Marketing dashboard</b><span>One live view of spend, leads, cost per lead and conversion rate. Built on your data and readable in a minute.</span></li>
+<li><b>90-day growth plan</b><span>Which channels, what budget split, which creative to test first, and which numbers define success. Clear enough for your team to execute.</span></li>
+</ol>
+<h4>How it works</h4>
+<ul>
+<li><b>Week 1</b><span>Kickoff and access. We get into your ad accounts, analytics and sales process.</span></li>
+<li><b>Weeks 2 and 3</b><span>Audit and insights. We analyse the funnel, the audience and the data.</span></li>
+<li><b>Week 4</b><span>Tracking, dashboard and plan, presented in a working session.</span></li>
+</ul>
+<h4>What we need from you</h4>
+<p>Read access to your ad accounts, analytics and website, a short conversation with whoever handles sales, and one person who can answer questions within a day or two.</p>
+<h4>Not included</h4>
+<p>We do not run campaigns or produce content in Foundation, and ad spend is always paid directly to the platforms. Many clients continue into Growth, which starts from this plan.</p>
+</div>
+<div data-pd="2">
+<p class="pi">Growth is for brands that know their offer and want one team running strategy, content and media as a single system, and improving it every week.</p>
+<h4>Who it is for</h4>
+<p>Brands with a clear offer and a goal that can be counted: leads, bookings or online sales. Ready to scale, but tired of agencies that work in separate boxes.</p>
+<h4>What you get</h4>
+<ol>
+<li><b>Digital strategy and channel plan</b><span>A plan built around your goal: which channels play which role, how budget is split, and what we test first. Reviewed every quarter.</span></li>
+<li><b>Creative and social content</b><span>Campaign concepts, copywriting, visual direction and social content built from audience insight, not trends. Volume is agreed in the scope before we start.</span></li>
+<li><b>Paid social and search management</b><span>Setup, targeting, creative testing and budget pacing across paid social and search, with optimization every week.</span></li>
+<li><b>Conversion optimization</b><span>We improve what happens after the click: landing pages, forms and offers, tested one change at a time.</span></li>
+<li><b>Monthly report and decision call</b><span>What happened, why it happened, and what we do next. One call, one set of decisions.</span></li>
+</ol>
+<h4>How it works</h4>
+<ul>
+<li><b>First two weeks</b><span>Kickoff, tracking check, strategy, and the first campaigns ready to launch.</span></li>
+<li><b>Every week</b><span>Optimization of budgets, audiences and creative.</span></li>
+<li><b>Every month</b><span>Report and decision call.</span></li>
+<li><b>Every quarter</b><span>Strategy review against your goal.</span></li>
+</ul>
+<h4>What we need from you</h4>
+<p>Brand assets, access to your accounts, approvals within about two working days, and honest feedback from sales on lead quality, which is the most valuable input we get.</p>
+<h4>Not included</h4>
+<p>Ad spend is paid directly to the platforms. We recommend at least three months, so campaigns complete a full learning cycle. Work outside digital, such as TV, PR or events, is not part of Growth.</p>
+</div>
+<div data-pd="3">
+<p class="pi">Intelligence is for brands that want one connected system instead of five vendors: strategy, creative, media, data and technology working from the same insight.</p>
+<h4>Who it is for</h4>
+<p>Brands with enough leads or customers for data to teach us something, and a set of tools that do not talk to each other yet.</p>
+<h4>What you get</h4>
+<ol>
+<li><b>Everything in Growth</b><span>Strategy, content, paid media, conversion work and monthly decisions, as described in the Growth package.</span></li>
+<li><b>Marketing automation and CRM workflows</b><span>From lead capture to follow-up, built in your CRM: routing, reminders, nurture sequences and handover to sales, so no lead is forgotten.</span></li>
+<li><b>AI-assisted personalization</b><span>Messages, segments and creative variations shaped by what your data says about each audience, with a human reviewing everything before it ships.</span></li>
+<li><b>Advanced analytics and forecasting</b><span>Attribution, customer value and cohort analysis, plus forecasts of what a change in budget is likely to do.</span></li>
+<li><b>A dedicated ERA team</b><span>A named strategist, media lead and analyst who know your business and work as part of your team.</span></li>
+</ol>
+<h4>How we start</h4>
+<ul>
+<li><b>Free consultation</b><span>We learn your goals, your tools and your volume.</span></li>
+<li><b>Scoping</b><span>We map what to build first and what to leave out.</span></li>
+<li><b>Written proposal</b><span>Clear scope and price, with no obligation.</span></li>
+<li><b>Phased launch</b><span>We roll out step by step, starting where the impact is highest.</span></li>
+</ul>
+<h4>What we need from you</h4>
+<p>Access to your CRM and tools, a decision-maker who joins the monthly call, and openness to changing how leads are handled.</p>
+<h4>Not included</h4>
+<p>We integrate and automate marketing tools. We do not build software products or provide general IT services. Ad spend is paid directly to the platforms.</p>
+</div>
+</div>
+
 </div></section>
 
 <section id="consult"><div class="w split">
@@ -291,6 +381,12 @@ html.intro.in2 .hero p,html.intro.in2 .hero .cta,html.intro.in2 .proof{opacity:1
 <p class="mu" id="mrs" style="margin-top:12px"></p>
 <div id="mrl"></div>
 </div></div>
+<div class="ov" id="pm" hidden><div class="md wide pdm" role="dialog" aria-modal="true" aria-labelledby="pmt" tabindex="-1">
+<button class="x" id="pmc" type="button" aria-label="Close">&times;</button>
+<div class="eb">Package</div><h3 id="pmt"></h3><div class="price" id="pmp"></div><p class="mu" id="pmd" style="margin-top:6px"></p>
+<div id="pmb"></div>
+<div class="ft"><a class="btn sig" id="pms" href="#consult"></a><button class="btn line" id="pmk" type="button">Back to packages</button></div>
+</div></div>
 <aside id="adm" role="dialog" aria-label="ERA admin panel" hidden>
 <div class="ah"><b>ERA Admin</b><span id="aact" hidden><button class="btn sig" id="asave" type="button">Save changes</button><button class="btn line" id="aout" type="button">Sign out</button></span><button class="x" id="acl" type="button" aria-label="Close admin panel">&times;</button></div>
 <form id="alog" class="ab" hidden>
@@ -324,7 +420,7 @@ const waLink=t=>'https://wa.me/'+cfg.wa+'?text='+encodeURIComponent(t);
 const SEC=['Hero','Problems','Evolution','Services','Packages','Consultation','FAQ'];
 const roots=[...[...document.querySelectorAll('main > section')].map((s,i)=>[s,SEC[i]||'Section '+(i+1)]),[document.querySelector('.nav'),'Header'],[document.querySelector('footer'),'Footer'],[document.querySelector('.bar'),'Sticky button']];
 const items=[];
-roots.forEach(([r,name])=>{let i=0;const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT,{acceptNode:n=>(!n.nodeValue.trim()||n.parentElement.closest('svg,script,style,textarea,#pkg,#wl,#ml,#ok'))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+roots.forEach(([r,name])=>{let i=0;const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT,{acceptNode:n=>(!n.nodeValue.trim()||n.parentElement.closest('svg,script,style,textarea,#pkg,#wl,#ml,#ok,.mdl'))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
 let n;while((n=w.nextNode()))items.push({k:name+':'+(i++),sec:name,node:n,orig:n.nodeValue});});
 
 function applyCfg(){$('wl').href='https://wa.me/'+cfg.wa;$('ml').href='mailto:'+cfg.mail;$('ml').textContent=cfg.mail}
@@ -583,6 +679,25 @@ $('mrout').onclick=async()=>{try{if(S)await fetch(API+'/auth/v1/logout',{method:
   await sleep(1100);
   clearTimeout(fail);finish();
 })();
+
+/* ---- package details screen ---- */
+let pmFrom=null;
+function openPM(i,btn){
+  const card=btn.closest('.pc'),src=document.querySelector('[data-pd="'+i+'"]');if(!src)return;
+  $('pmt').textContent=card.querySelector('h3').textContent;
+  $('pmd').textContent=card.querySelector('.m').textContent;
+  $('pmp').replaceChildren(...card.querySelector('.price').cloneNode(true).childNodes);
+  $('pmb').replaceChildren(src.cloneNode(true));
+  const s=$('pms');s.textContent=card.querySelector('[data-pkg]').textContent;s.dataset.i=i;
+  $('pm').hidden=false;pmFrom=btn;document.body.style.overflow='hidden';
+  const d=$('pm').firstElementChild;d.scrollTop=0;d.focus();
+}
+function closePM(){$('pm').hidden=true;document.body.style.overflow='';if(pmFrom)pmFrom.focus()}
+document.querySelectorAll('.mdl').forEach(b=>b.addEventListener('click',()=>openPM(b.dataset.d,b)));
+$('pmc').onclick=$('pmk').onclick=closePM;
+$('pm').addEventListener('click',e=>{if(e.target===$('pm'))closePM()});
+$('pms').addEventListener('click',()=>{$('pkg').selectedIndex=+$('pms').dataset.i;$('pm').hidden=true;document.body.style.overflow=''});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('pm').hidden)closePM()});
 </script>
 
 </body>
