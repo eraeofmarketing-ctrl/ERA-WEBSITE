@@ -65,7 +65,7 @@ h3{font-size:22px;letter-spacing:-.02em;font-weight:700}
 .pc .m{opacity:.7;font-size:15px;margin-top:8px}
 .price{font-weight:800;font-size:34px;letter-spacing:-.03em;margin-top:24px}.price small{font:500 15px Inter,sans-serif;opacity:.7;letter-spacing:0}
 .pc ul{margin:20px 0 28px;flex:1}.pc li{padding:10px 0;border-top:1px solid color-mix(in srgb,currentColor 20%,transparent);font-size:15.5px}
-.note{color:var(--mute);font-size:14px;margin-top:20px}
+.note{color:var(--mute);font-size:16px;font-weight:700;margin-top:20px}
 ol.steps{list-style:none;padding:0;margin-top:32px;counter-reset:s}
 .steps li{counter-increment:s;padding:16px 0 16px 48px;border-top:1px solid var(--rule);position:relative}
 .steps li::before{content:counter(s);position:absolute;left:0;top:14px;font:800 22px Manrope,sans-serif}
@@ -163,6 +163,59 @@ html.intro.in2 .hero p,html.intro.in2 .hero .cta,html.intro.in2 .proof{opacity:1
 .pdm li span{display:block;color:var(--mute);font-size:15px}
 .pdm .ft{position:sticky;bottom:0;background:var(--bg);display:flex;gap:10px;flex-wrap:wrap;padding:16px 0 calc(22px + env(safe-area-inset-bottom,0px));margin-top:24px;border-top:1px solid var(--rule)}
 .pdm .ft .btn{flex:1 1 180px}
+.abs{position:fixed;inset:0;z-index:65;background:#1A1A1A;color:#F8F5F0;overflow-y:auto;overscroll-behavior:contain;outline:0}
+.abs:not([hidden]){animation:abin .45s ease both}
+@keyframes abin{from{opacity:0}}
+.abt{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top,0px)) max(24px,calc(50vw - 526px)) 14px;background:linear-gradient(#1A1A1A 65%,rgba(26,26,26,0))}
+.abt .logo{color:#F8F5F0;width:84px;height:23px}
+.abx{background:none;border:1.5px solid rgba(248,245,240,.5);color:#F8F5F0;padding:9px 16px;font:700 14px Manrope,sans-serif;cursor:pointer;border-radius:2px}
+.abx:hover{border-color:#F8F5F0}
+.abp{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--sig)}
+.abw{max-width:1100px;margin:0 auto;padding:0 24px}
+.ah0{min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;padding:32px 0 96px}
+.ey,.kk{font:700 12px Manrope,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--sig)}
+.ey{margin-bottom:28px}
+.abs .hh{font:800 clamp(38px,7.4vw,96px)/.98 Manrope,sans-serif;letter-spacing:-.045em;max-width:15ch;color:#F8F5F0}
+.abs .hh span{color:#8D8982}
+.abs .sub{font-size:clamp(18px,2.2vw,24px);color:#CFCBC3;max-width:30em;margin-top:32px}
+.cue{margin-top:56px;display:flex;align-items:center;gap:14px;font:700 12px Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8D8982}
+.cue::after{content:"";width:64px;height:1px;background:currentColor;transform-origin:left;animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{50%{transform:scaleX(.3)}}
+.ch{border-top:1px solid rgba(248,245,240,.14);padding:clamp(72px,11vw,140px) 0}
+.ch .abw{display:grid;grid-template-columns:minmax(140px,.55fr) 2fr;gap:clamp(24px,5vw,64px)}
+.num{font:800 clamp(88px,15vw,220px)/.8 Manrope,sans-serif;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(248,245,240,.32)}
+.abs .ct{font:800 clamp(30px,5vw,64px)/1.02 Manrope,sans-serif;letter-spacing:-.035em;margin:14px 0 30px;max-width:none;color:#F8F5F0}
+.cp{font-size:clamp(18px,1.9vw,22px);line-height:1.6;color:#CFCBC3;max-width:34em;margin:0 0 18px}
+.cq{font:800 clamp(26px,4vw,52px)/1.08 Manrope,sans-serif;letter-spacing:-.03em;margin-top:40px;max-width:20em}
+.cq .old{display:block;color:#6F6B65;font-weight:700;text-decoration:line-through;text-decoration-color:var(--sig);text-decoration-thickness:3px;margin-bottom:8px}
+.cq .mt{color:#8D8982}
+.chips{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:26px 0 8px}
+.chips span{border:1.5px solid rgba(248,245,240,.4);padding:10px 18px;font:700 clamp(16px,2vw,22px) Manrope,sans-serif}
+.chips i{font-style:normal;color:#8D8982}
+.rl{border-top:1px solid rgba(248,245,240,.14);padding:clamp(72px,10vw,120px) 0}
+.rw{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;font:800 clamp(30px,6.2vw,84px)/1.05 Manrope,sans-serif;letter-spacing:-.04em;text-transform:uppercase;margin:18px 0 36px}
+.rw span{color:#6F6B65}.rw span:last-of-type{color:#F8F5F0}
+.rw i{font-style:normal;color:var(--sig);font-weight:700}
+.bl{display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px;margin-top:56px;border-top:1px solid rgba(248,245,240,.14)}
+.bi{padding:28px 0}
+.bi b{display:block;font:800 clamp(20px,2.4vw,28px)/1.1 Manrope,sans-serif;letter-spacing:-.025em;margin-bottom:10px}
+.bi span{display:block;color:#A9A59D;font-size:16px;line-height:1.55}
+.fn{border-top:1px solid rgba(248,245,240,.14);padding:clamp(80px,12vw,150px) 0 calc(72px + env(safe-area-inset-bottom,0px))}
+.abs .fh{font:800 clamp(40px,9vw,128px)/.95 Manrope,sans-serif;letter-spacing:-.05em;max-width:none;color:#F8F5F0}
+.abs .fh span{display:block;color:#8D8982}
+.abs .fh em{display:block;font-style:normal;color:var(--sig)}
+.fp{font-size:clamp(18px,2vw,22px);line-height:1.6;color:#CFCBC3;max-width:36em;margin:36px 0 32px}
+.fc{display:flex;gap:12px;flex-wrap:wrap}
+.abs .btn.ln{border-color:#F8F5F0;color:#F8F5F0;background:transparent}
+.fd{margin-top:64px;font:600 11px Inter,sans-serif;letter-spacing:.42em;text-transform:uppercase;color:#8D8982}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cue::after{animation:none}.abs:not([hidden]){animation:none}}
+@media(max-width:860px){
+.ch .abw{grid-template-columns:1fr;gap:6px}.num{font-size:96px;margin-bottom:8px}.bl{grid-template-columns:1fr}.abt{padding-left:16px;padding-right:16px}.abw{padding:0 20px}
+.nav .w{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:0;row-gap:0}
+.nav nav{display:flex;order:3;width:100%;margin:0;gap:24px;padding:12px 0 12px;font-size:14px;overflow-x:auto;white-space:nowrap}
+html{scroll-padding-top:calc(116px + env(safe-area-inset-top,0px))}}
 </style>
 </head>
 <body id="top">
@@ -170,7 +223,7 @@ html.intro.in2 .hero p,html.intro.in2 .hero .cta,html.intro.in2 .proof{opacity:1
 
 <header class="nav"><div class="w">
 <a href="#top" aria-label="ERA home"><svg class="logo" role="img" aria-label="ERA"><use href="#era"/></svg></a>
-<nav><a href="#services">Services</a><a href="#packages">Packages</a><a href="#faq">FAQ</a></nav>
+<nav><a href="#services">Services</a><a href="#packages">Packages</a><a href="#faq">FAQ</a><a class="abl" href="#about">About us</a></nav>
 <a class="btn inv" href="#consult">Free consultation</a>
 <button class="ico" id="nacc" type="button" aria-label="Sign in" title="Sign in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></button>
 </div></header>
@@ -359,7 +412,7 @@ html.intro.in2 .hero p,html.intro.in2 .hero .cta,html.intro.in2 .proof{opacity:1
 
 <footer><div class="w">
 <div><svg class="logo" role="img" aria-label="ERA"><use href="#era"/></svg><div class="desc">The Evolution of Marketing</div><p>Marketing evolved. Now, it understands.</p></div>
-<div><b>ERA</b><a href="#services">Services</a><a href="#packages">Packages</a><a href="#faq">FAQ</a></div>
+<div><b>ERA</b><a href="#services">Services</a><a href="#packages">Packages</a><a href="#faq">FAQ</a><a class="abl" href="#about">About us</a></div>
 <div><b>Talk to us</b><a href="#consult">Free consultation</a><a id="wl" href="#">WhatsApp</a><a id="ml" href="#">hello@era.agency</a><p style="margin-top:16px">&copy; 2026 ERA</p></div>
 </div></footer>
 <div class="bar"><a class="btn sig" href="#consult">Book a free consultation</a></div>
@@ -387,6 +440,82 @@ html.intro.in2 .hero p,html.intro.in2 .hero .cta,html.intro.in2 .proof{opacity:1
 <div id="pmb"></div>
 <div class="ft"><a class="btn sig" id="pms" href="#consult"></a><button class="btn line" id="pmk" type="button">Back to packages</button></div>
 </div></div>
+<div class="abs" id="ab" role="dialog" aria-modal="true" aria-label="About ERA" tabindex="-1" hidden>
+<div class="abt"><svg class="logo nx" role="img" aria-label="ERA"><use href="#era"/></svg><button class="abx nx" id="abk" type="button">Close &times;</button><i class="abp" id="abp"></i></div>
+<div class="abw ah0">
+<div class="ey rv">Our brand story</div>
+<h2 class="hh rv" style="--d:.1s"><span>Before ads, brands and social media,</span> there was an exchange.</h2>
+<p class="sub rv" style="--d:.25s">This is how marketing evolved, and why ERA exists.</p>
+<div class="cue nx rv" style="--d:.4s">Scroll</div>
+</div>
+
+<div class="ch"><div class="abw">
+<div class="num nx rv">01</div>
+<div>
+<div class="kk rv">Exchange</div>
+<h3 class="ct rv">Where marketing began</h3>
+<p class="cp rv">One person has something. Another person needs it. Between them, value changes hands.</p>
+<p class="cp rv">No logo. No campaign. No algorithm. Just a human need, and someone who understood it.</p>
+<p class="cp rv">From that simple idea, the heart of marketing was born:</p>
+<div class="cq rv">Understand what people need. Offer value worth choosing.</div>
+</div>
+</div></div>
+
+<div class="ch"><div class="abw">
+<div class="num nx rv">02</div>
+<div>
+<div class="kk rv">Influence</div>
+<h3 class="ct rv">When value became a story</h3>
+<p class="cp rv">Then came the first marks and the first ads, and owning a product stopped being enough.</p>
+<p class="cp rv">Merchants had to catch attention, build trust, and create meaning around what they offered.</p>
+<p class="cp rv">Marketing moved from exchanging value to influencing decisions.</p>
+<div class="cq rv"><span class="old">What do people need?</span>Why should they choose us?</div>
+</div>
+</div></div>
+
+<div class="ch"><div class="abw">
+<div class="num nx rv">03</div>
+<div>
+<div class="kk rv">Scale</div>
+<h3 class="ct rv">When marketing became a growth engine</h3>
+<p class="cp rv">The Industrial Revolution changed everything. Production got faster. Markets got bigger. Competition got fiercer.</p>
+<p class="cp rv">Marketing stopped being a tool for selling. It became an engine for growth.</p>
+<div class="cq rv"><span class="old">How do we sell?</span>How do we reach more people? How do we stand apart? How do we grow?</div>
+</div>
+</div></div>
+
+<div class="ch"><div class="abw">
+<div class="num nx rv">04</div>
+<div>
+<div class="kk rv">Intelligence</div>
+<h3 class="ct rv">The future of marketing</h3>
+<p class="cp rv">Today, marketing is entering a new era.</p>
+<p class="cp rv">Data tells us what is happening. Technology helps us understand behavior. AI opens new doors for creativity, personalization and prediction.</p>
+<p class="cp rv">Marketing is no longer just about delivering a message to an audience. It has become a discipline that brings together:</p>
+<div class="chips rv"><span>Data</span><i class="nx">+</i><span>Creativity</span><i class="nx">+</i><span>Technology</span><i class="nx">+</i><span>Human Understanding</span></div>
+<div class="cq rv"><span class="mt">Not just reaching people.</span> Understanding them.</div>
+</div>
+</div></div>
+
+<div class="rl"><div class="abw">
+<div class="kk rv">The evolution of marketing</div>
+<div class="rw rv"><span>Exchange</span><i class="nx">&rarr;</i><span>Influence</span><i class="nx">&rarr;</i><span>Scale</span><i class="nx">&rarr;</i><span>Intelligence</span></div>
+<p class="cp rv">Marketing began with Exchange. It became an industry with Influence. It became a growth engine with Scale.</p>
+<p class="cp rv">And with Intelligence, it is heading toward its future.</p>
+<div class="bl">
+<div class="bi rv"><b>Growth follows understanding</b><span>Brands grow when they understand people first.</span></div>
+<div class="bi rv" style="--d:.12s"><b>Proof over promise</b><span>Every engagement starts with a business goal and a baseline, so results are measured honestly.</span></div>
+<div class="bi rv" style="--d:.24s"><b>Human, even with AI</b><span>Data, AI and automation improve decisions and speed. People keep the judgment.</span></div>
+</div>
+</div></div>
+
+<div class="fn"><div class="abw">
+<h2 class="fh rv"><span>Marketing evolved.</span><em>Now, it understands.</em></h2>
+<p class="fp rv">ERA is a digital marketing agency. We help brands grow by understanding people first, then connecting Strategy, Creative, Media, Data and Technology into one system that performs and keeps learning.</p>
+<div class="fc rv"><a class="btn sig" id="abc" href="#consult">Book a free consultation</a><a class="btn ln" id="abv" href="#packages">See packages</a></div>
+<div class="fd nx">ERA &nbsp;&middot;&nbsp; The Evolution of Marketing</div>
+</div></div>
+</div>
 <aside id="adm" role="dialog" aria-label="ERA admin panel" hidden>
 <div class="ah"><b>ERA Admin</b><span id="aact" hidden><button class="btn sig" id="asave" type="button">Save changes</button><button class="btn line" id="aout" type="button">Sign out</button></span><button class="x" id="acl" type="button" aria-label="Close admin panel">&times;</button></div>
 <form id="alog" class="ab" hidden>
@@ -418,9 +547,9 @@ const waLink=t=>'https://wa.me/'+cfg.wa+'?text='+encodeURIComponent(t);
 
 /* ---- editable text discovery (every text node on the page) ---- */
 const SEC=['Hero','Problems','Evolution','Services','Packages','Consultation','FAQ'];
-const roots=[...[...document.querySelectorAll('main > section')].map((s,i)=>[s,SEC[i]||'Section '+(i+1)]),[document.querySelector('.nav'),'Header'],[document.querySelector('footer'),'Footer'],[document.querySelector('.bar'),'Sticky button']];
+const roots=[...[...document.querySelectorAll('main > section')].map((s,i)=>[s,SEC[i]||'Section '+(i+1)]),[document.querySelector('.nav'),'Header'],[document.querySelector('footer'),'Footer'],[document.querySelector('.bar'),'Sticky button'],[document.getElementById('ab'),'About us']];
 const items=[];
-roots.forEach(([r,name])=>{let i=0;const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT,{acceptNode:n=>(!n.nodeValue.trim()||n.parentElement.closest('svg,script,style,textarea,#pkg,#wl,#ml,#ok,.mdl'))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+roots.forEach(([r,name])=>{let i=0;const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT,{acceptNode:n=>(!n.nodeValue.trim()||n.parentElement.closest('svg,script,style,textarea,#pkg,#wl,#ml,#ok,.mdl,.abl,.nx'))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
 let n;while((n=w.nextNode()))items.push({k:name+':'+(i++),sec:name,node:n,orig:n.nodeValue});});
 
 function applyCfg(){$('wl').href='https://wa.me/'+cfg.wa;$('ml').href='mailto:'+cfg.mail;$('ml').textContent=cfg.mail}
@@ -698,6 +827,28 @@ $('pmc').onclick=$('pmk').onclick=closePM;
 $('pm').addEventListener('click',e=>{if(e.target===$('pm'))closePM()});
 $('pms').addEventListener('click',()=>{$('pkg').selectedIndex=+$('pms').dataset.i;$('pm').hidden=true;document.body.style.overflow=''});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('pm').hidden)closePM()});
+
+/* ---- About us screen ---- */
+let abFrom=null;
+function openAb(t){
+  const a=$('ab');a.hidden=false;abFrom=t||null;document.body.style.overflow='hidden';a.scrollTop=0;a.focus();
+  try{history.replaceState(null,'','#about')}catch(e){}
+  abProg();
+}
+function closeAb(skipFocus){
+  $('ab').hidden=true;document.body.style.overflow='';
+  try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}
+  if(abFrom&&!skipFocus)abFrom.focus();
+}
+function abProg(){const a=$('ab'),m=a.scrollHeight-a.clientHeight;$('abp').style.width=(m>0?a.scrollTop/m*100:0)+'%'}
+document.querySelectorAll('.abl').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openAb(a)}));
+$('abk').onclick=()=>closeAb();
+$('abc').addEventListener('click',()=>closeAb(true));$('abv').addEventListener('click',()=>closeAb(true));
+$('ab').addEventListener('scroll',abProg,{passive:true});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('ab').hidden)closeAb()});
+const abIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');abIo.unobserve(e.target)}}),{root:$('ab'),threshold:.12});
+$('ab').querySelectorAll('.rv').forEach(el=>abIo.observe(el));
+if(location.hash==='#about')openAb();
 </script>
 
 </body>
