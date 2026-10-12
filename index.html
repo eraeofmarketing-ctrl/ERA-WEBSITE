@@ -64,7 +64,7 @@ h3{font-size:22px;letter-spacing:-.02em;font-weight:700}
 .pc.hot{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .pc .m{opacity:.7;font-size:15px;margin-top:8px}
 .price{font-weight:800;font-size:34px;letter-spacing:-.03em;margin-top:24px}.price small{font:500 15px Inter,sans-serif;opacity:.7;letter-spacing:0}
-.pc ul{margin:20px 0 28px;flex:1}.pc li{padding:10px 0;border-top:1px solid color-mix(in srgb,currentColor 20%,transparent);font-size:15.5px}
+.pc ul{margin:20px 0 28px;flex:1}.pc li{padding:10px 0;border-top:1px solid rgba(128,128,128,.3);border-top:1px solid color-mix(in srgb,currentColor 20%,transparent);font-size:15.5px}
 .note{color:var(--mute);font-size:16px;font-weight:700;margin-top:20px}
 ol.steps{list-style:none;padding:0;margin-top:32px;counter-reset:s}
 .steps li{counter-increment:s;padding:16px 0 16px 48px;border-top:1px solid var(--rule);position:relative}
@@ -72,7 +72,7 @@ ol.steps{list-style:none;padding:0;margin-top:32px;counter-reset:s}
 .steps b{display:block;font-weight:600}.steps span{color:var(--mute);font-size:15px}
 form{background:var(--card);border:1px solid var(--rule);padding:32px}
 label{display:block;font-weight:600;font-size:14px;margin:0 0 6px}
-input,select,textarea{width:100%;padding:13px 14px;margin-bottom:18px;border:1.5px solid color-mix(in srgb,var(--fg) 35%,transparent);border-radius:2px;background:var(--bg);color:var(--fg);font:inherit;font-size:16px}
+input,select,textarea{width:100%;padding:13px 14px;margin-bottom:18px;border:1.5px solid rgba(26,26,26,.35);border:1.5px solid color-mix(in srgb,var(--fg) 35%,transparent);border-radius:2px;background:var(--bg);color:var(--fg);font:inherit;font-size:16px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .hp{position:absolute;left:-9999px}
 form .btn{width:100%}
@@ -137,8 +137,9 @@ footer a{display:block;text-decoration:none;padding:3px 0}footer b{display:block
 .mrh{display:flex;gap:8px;margin:16px 0 4px;flex-wrap:wrap}.mrh .btn{padding:10px 16px;font-size:14px}
 .ap .ol{fill:none;stroke:var(--fg);stroke-width:1;stroke-linejoin:miter;stroke-dasharray:1;stroke-dashoffset:1;display:none}
 .ghost{visibility:hidden}
-.cur{display:inline-block;width:0;height:0;position:relative}
-.cur::after{content:"";position:absolute;left:.04em;bottom:-.14em;width:.07em;height:.9em;background:var(--sig);animation:blink .7s steps(1) infinite}
+.hero h1{position:relative}
+.hero h1 .ghost{display:inline;font:inherit;letter-spacing:inherit;color:inherit}
+.cur{position:absolute;left:0;top:0;width:.07em;min-width:3px;height:1em;background:var(--sig);animation:blink .7s steps(1) infinite;pointer-events:none}
 @keyframes blink{50%{opacity:0}}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fillin{from{opacity:0}to{opacity:1}}
@@ -213,7 +214,7 @@ html.intro.in2 .hero p,html.intro.in2 .hero .cta,html.intro.in2 .proof{opacity:1
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cue::after{animation:none}.abs:not([hidden]){animation:none}}
 @media(max-width:860px){
 .ch .abw{grid-template-columns:1fr;gap:6px}.num{font-size:96px;margin-bottom:8px}.bl{grid-template-columns:1fr}.abt{padding-left:16px;padding-right:16px}.abw{padding:0 20px}
-.nav .w{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:0;row-gap:0}
+.nav .w{flex-wrap:wrap;height:auto;padding-top:8px;padding-bottom:0;row-gap:0}
 .nav nav{display:flex;order:3;width:100%;margin:0;gap:24px;padding:12px 0 12px;font-size:14px;overflow-x:auto;white-space:nowrap}
 html{scroll-padding-top:calc(116px + env(safe-area-inset-top,0px))}}
 .svc{column-gap:16px;row-gap:16px;border-top:0;counter-reset:sv}
@@ -227,14 +228,34 @@ html{scroll-padding-top:calc(116px + env(safe-area-inset-top,0px))}}
 .svc>div:active .ic,.svc>div.on .ic{stroke:var(--sig);transform:scale(1.1)}
 .svc>div:active .fl,.svc>div.on .fl{fill:var(--sig)}
 .svc>div:active::before,.svc>div.on::before{width:100%}
-.svc>div:active li,.svc>div.on li,.svc>div:active::after,.svc>div.on::after{color:color-mix(in srgb,var(--bg) 80%,transparent)}
+.svc>div:active li,.svc>div.on li,.svc>div:active::after,.svc>div.on::after{color:rgba(248,245,240,.8);color:color-mix(in srgb,var(--bg) 80%,transparent)}
 @media(hover:hover){
 .svc>div:hover{background:var(--fg);color:var(--bg);border-color:var(--fg);transform:translateY(-4px)}
 .svc>div:hover .ic{stroke:var(--sig);transform:scale(1.1)}
 .svc>div:hover .fl{fill:var(--sig)}
 .svc>div:hover::before{width:100%}
-.svc>div:hover li,.svc>div:hover::after{color:color-mix(in srgb,var(--bg) 80%,transparent)}}
+.svc>div:hover li,.svc>div:hover::after{color:rgba(248,245,240,.8);color:color-mix(in srgb,var(--bg) 80%,transparent)}}
 @media(prefers-reduced-motion:reduce){.svc>div,.svc .ic,.svc>div::before{transition:none}.svc>div:hover{transform:none}}
+:root{padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+@supports (height:100svh){.ah0{min-height:calc(100svh - 64px)}.md{max-height:calc(100svh - 32px)}}
+#adm input,#adm textarea,#adm select{font-size:16px}
+@media(max-width:860px){
+h1{font-size:clamp(28px,10.2vw,76px)}
+.nav .w>a:first-child{display:flex;align-items:center;min-height:44px}
+.nav nav{padding:0 0 2px;gap:14px}
+.nav nav a{padding:9px 5px}
+.mdl{padding:12px 0;margin:0 0 4px}
+summary{padding:12px 0;margin:-12px 0}
+footer a{padding:9px 0}
+.more{padding:11px 0}
+.pc{padding:28px 24px}
+form{padding:24px 20px}
+}
+@media(max-width:480px){.stages{grid-template-columns:1fr}.hero{padding:56px 0 48px}section{padding:64px 0}}
+@media(max-width:400px){.w{padding:0 20px}.nav .w{gap:10px}.nav .btn{padding:9px 12px;font-size:13px}.nav .ico{width:40px;height:40px}}
+@media(max-width:340px){.nav .btn{display:none}.nav .ico{margin-left:auto}.nav nav{gap:10px;font-size:13px}.nav nav a{padding:9px 3px}}
+@media(max-width:480px),(max-height:620px){#pmk{display:none}.pdm .ft{padding-top:12px;margin-top:16px}}
+@media(max-height:500px){.bar{display:none}footer{padding-bottom:56px}}
 </style>
 </head>
 <body id="top">
@@ -396,7 +417,7 @@ html{scroll-padding-top:calc(116px + env(safe-area-inset-top,0px))}}
 <section id="consult"><div class="w split">
 <div><h2>Book a free consultation.</h2><p class="lead">Tell us the problem. We will tell you what we would look at first.</p>
 <ol class="steps">
-<li><b>Send your details</b><span>Two minutes. It opens a WhatsApp message to our team.</span></li>
+<li><b>Send your details</b><span>Two minutes. Your request goes straight to our team.</span></li>
 <li><b>30-minute call</b><span>We review your spend, funnel and what you track today.</span></li>
 <li><b>A written next step</b><span>You get a clear recommendation. No obligation to hire us.</span></li>
 </ol></div>
@@ -812,13 +833,15 @@ $('mrout').onclick=async()=>{try{if(S)await fetch(API+'/auth/v1/logout',{method:
   await Promise.race([contentReady,sleep(1400)]);
   if(done)return;
   const cur=mk('i',{className:'cur'});
+  const place=(t,g)=>{let r=null,x=0;if(g.textContent){const q=g.getClientRects();if(q.length){r=q[0];x=r.left}}else{const rg=document.createRange();rg.setStart(t,Math.max(0,t.nodeValue.length-1));rg.setEnd(t,t.nodeValue.length);const q=rg.getClientRects();if(q.length){r=q[q.length-1];x=r.right}}
+    if(!r)return;const b=h1.getBoundingClientRect();cur.style.left=(x-b.left+2)+'px';cur.style.top=(r.top-b.top+r.height*.1)+'px';cur.style.height=(r.height*.8)+'px'};
   const gh=tn.map(t=>{t._ty=t.nodeValue;const g=mk('span',{className:'ghost',textContent:t.nodeValue});t.after(g);t.nodeValue='';return g});
-  root.classList.add('in1');
+  root.classList.add('in1');h1.append(cur);
   await sleep(350);
   for(let k=0;k<tn.length&&!done;k++){
-    const t=tn[k],g=gh[k];t.after(cur);
+    const t=tn[k],g=gh[k];
     for(let i=1;i<=t._ty.length&&!done;i++){
-      const full=t._ty;t.nodeValue=full.slice(0,i);g.textContent=full.slice(i);
+      const full=t._ty;t.nodeValue=full.slice(0,i);g.textContent=full.slice(i);place(t,g);
       await sleep(/[.,]$/.test(full.slice(0,i))?280:34+Math.random()*26);
     }
     await sleep(320);
