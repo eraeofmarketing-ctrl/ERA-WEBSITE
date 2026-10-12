@@ -216,6 +216,25 @@ html.intro.in2 .hero p,html.intro.in2 .hero .cta,html.intro.in2 .proof{opacity:1
 .nav .w{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:0;row-gap:0}
 .nav nav{display:flex;order:3;width:100%;margin:0;gap:24px;padding:12px 0 12px;font-size:14px;overflow-x:auto;white-space:nowrap}
 html{scroll-padding-top:calc(116px + env(safe-area-inset-top,0px))}}
+.svc{column-gap:16px;row-gap:16px;border-top:0;counter-reset:sv}
+.svc>div{position:relative;overflow:hidden;counter-increment:sv;padding:28px 26px 32px;border:1px solid var(--rule);background:var(--card);transition:background .3s,color .3s,border-color .3s,transform .3s cubic-bezier(.2,.7,.2,1)}
+.svc>div::after{content:"0" counter(sv);position:absolute;top:28px;right:26px;font:600 12px Manrope,sans-serif;letter-spacing:.14em;color:var(--mute);transition:color .3s}
+.svc>div::before{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--sig);transition:width .4s cubic-bezier(.2,.7,.2,1)}
+.svc .ic{display:block;width:46px;height:46px;margin-bottom:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:miter;stroke-linecap:square;transition:stroke .3s,transform .4s cubic-bezier(.2,.7,.2,1)}
+.svc .ic .fl{fill:currentColor;stroke:none}
+.svc li{transition:color .3s}
+.svc>div:active,.svc>div.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.svc>div:active .ic,.svc>div.on .ic{stroke:var(--sig);transform:scale(1.1)}
+.svc>div:active .fl,.svc>div.on .fl{fill:var(--sig)}
+.svc>div:active::before,.svc>div.on::before{width:100%}
+.svc>div:active li,.svc>div.on li,.svc>div:active::after,.svc>div.on::after{color:color-mix(in srgb,var(--bg) 80%,transparent)}
+@media(hover:hover){
+.svc>div:hover{background:var(--fg);color:var(--bg);border-color:var(--fg);transform:translateY(-4px)}
+.svc>div:hover .ic{stroke:var(--sig);transform:scale(1.1)}
+.svc>div:hover .fl{fill:var(--sig)}
+.svc>div:hover::before{width:100%}
+.svc>div:hover li,.svc>div:hover::after{color:color-mix(in srgb,var(--bg) 80%,transparent)}}
+@media(prefers-reduced-motion:reduce){.svc>div,.svc .ic,.svc>div::before{transition:none}.svc>div:hover{transform:none}}
 </style>
 </head>
 <body id="top">
@@ -270,12 +289,12 @@ html{scroll-padding-top:calc(116px + env(safe-area-inset-top,0px))}}
 <h2>Six services. One connected system.</h2>
 <p class="lead">Understand people, build the strategy, create the communication, drive performance, learn from data, optimize growth.</p>
 <div class="svc">
-<div><h3>Digital Strategy</h3><ul><li>Audience and customer insights</li><li>Customer journey mapping</li><li>Channel and campaign strategy</li><li>Positioning and go-to-market</li></ul></div>
-<div><h3>Creative &amp; Content</h3><ul><li>Creative strategy and campaign concepts</li><li>Copywriting and social content</li><li>Visual content direction</li></ul></div>
-<div><h3>Performance Marketing</h3><ul><li>Paid social and paid search</li><li>Media planning and buying</li><li>Conversion optimization</li><li>Lead generation and e-commerce growth</li></ul></div>
-<div><h3>Social Media</h3><ul><li>Social and content strategy</li><li>Community-oriented content</li><li>Social campaigns and performance analysis</li></ul></div>
-<div><h3>Data &amp; Intelligence</h3><ul><li>Marketing analytics and dashboards</li><li>Performance reporting</li><li>AI-assisted personalization</li></ul></div>
-<div><h3>Technology &amp; Automation</h3><ul><li>Marketing automation</li><li>CRM and lead-generation workflows</li><li>Tracking and measurement</li></ul></div>
+<div><svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 42V33H18V23H30V14"/><circle cx="30" cy="9" r="4.5"/></svg><h3>Digital Strategy</h3><ul><li>Audience and customer insights</li><li>Customer journey mapping</li><li>Channel and campaign strategy</li><li>Positioning and go-to-market</li></ul></div>
+<div><svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4L29 19L44 24L29 29L24 44L19 29L4 24L19 19Z"/></svg><h3>Creative &amp; Content</h3><ul><li>Creative strategy and campaign concepts</li><li>Copywriting and social content</li><li>Visual content direction</li></ul></div>
+<div><svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="30" width="8" height="12"/><rect x="20" y="22" width="8" height="20"/><rect x="34" y="14" width="8" height="28"/><path d="M6 20L18 10L26 16L40 5M33 5H40V12"/></svg><h3>Performance Marketing</h3><ul><li>Paid social and paid search</li><li>Media planning and buying</li><li>Conversion optimization</li><li>Lead generation and e-commerce growth</li></ul></div>
+<div><svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><circle cx="12" cy="24" r="5"/><circle cx="36" cy="11" r="5"/><circle cx="36" cy="37" r="5"/><path d="M16.5 21.5L31.5 13.5M16.5 26.5L31.5 34.5"/></svg><h3>Social Media</h3><ul><li>Social and content strategy</li><li>Community-oriented content</li><li>Social campaigns and performance analysis</li></ul></div>
+<div><svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5L44 41H4Z"/><circle class="fl" cx="24" cy="31" r="3.5"/></svg><h3>Data &amp; Intelligence</h3><ul><li>Marketing analytics and dashboards</li><li>Performance reporting</li><li>AI-assisted personalization</li></ul></div>
+<div><svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="13" width="22" height="22"/><rect x="20" y="20" width="8" height="8"/><path d="M19 13V6M29 13V6M19 35V42M29 35V42M13 19H6M13 29H6M35 19H42M35 29H42"/></svg><h3>Technology &amp; Automation</h3><ul><li>Marketing automation</li><li>CRM and lead-generation workflows</li><li>Tracking and measurement</li></ul></div>
 </div>
 <p class="sys">Strategy × Creative × Media × Data × Technology</p>
 </div></section>
@@ -849,6 +868,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('ab').hidden)clo
 const abIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');abIo.unobserve(e.target)}}),{root:$('ab'),threshold:.12});
 $('ab').querySelectorAll('.rv').forEach(el=>abIo.observe(el));
 if(location.hash==='#about')openAb();
+
+/* ---- services: touch highlight ---- */
+document.querySelectorAll('.svc>div').forEach(c=>{let t;c.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')return;c.classList.add('on');clearTimeout(t);t=setTimeout(()=>c.classList.remove('on'),900)})});
 </script>
 
 </body>
