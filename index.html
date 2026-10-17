@@ -295,6 +295,44 @@ html.has-cur select{cursor:pointer!important}
 .rkt .sp{fill:var(--sig);animation:spk .5s linear infinite}.rkt .s2{animation-delay:.25s}
 @keyframes spk{0%{transform:translateY(0);opacity:1}100%{transform:translateY(12px);opacity:0}}
 @media(prefers-reduced-motion:reduce){.rk,.rkt .fl,.rkt .sp,#cr.boost .fw{animation:none}}
+/* quiet luxury typography pass */
+body{letter-spacing:-.003em}
+h1,h2,h3,.q,.lead,.sys,.pc .m{text-wrap:balance}
+p,details p{text-wrap:pretty}
+h2{font-weight:700;letter-spacing:-.035em;line-height:1.06}
+.lead{font-size:18px;line-height:1.65;max-width:46ch}
+@media(min-width:861px){section{padding:clamp(96px,9vw,128px) 0}.pc{padding:36px 32px}}
+section>.w[data-eb]::before{content:attr(data-eb);display:block;grid-column:1/-1;margin-bottom:28px;padding-left:46px;font:600 11px/1 Inter,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);background:linear-gradient(var(--fg),var(--fg)) 0 50%/30px 1px no-repeat}
+.btn{font-weight:600;letter-spacing:.01em}
+.proof>div{padding-right:28px;line-height:1.6}
+.proof>div::before{content:"";display:block;width:22px;height:2px;background:var(--sig);margin-bottom:16px}
+.proof b{font-weight:600;margin-bottom:4px}
+.qs{counter-reset:q}
+.q{counter-increment:q;position:relative;padding:28px 0 28px 58px;font-weight:600;font-size:clamp(20px,2.3vw,27px);line-height:1.32;letter-spacing:-.018em}
+.q::before{content:"0" counter(q);position:absolute;left:0;top:35px;font:600 11px/1 Inter,sans-serif;letter-spacing:.2em;color:var(--sig)}
+.stages{counter-reset:st}
+.st{counter-increment:st;padding-top:18px}
+.st::before{content:"0" counter(st);display:block;font:600 11px/1 Inter,sans-serif;letter-spacing:.2em;color:var(--mute);margin-bottom:14px}
+.st:last-child::before{color:var(--sig)}
+.st b{font:700 21px/1.1 Manrope,sans-serif;letter-spacing:-.02em;margin-bottom:8px}
+.st span{font-size:15px;line-height:1.55}
+.sys{font:600 13px/1.6 Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);padding:22px 0;margin-top:40px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);text-align:center}
+.pc h3{font-size:24px;letter-spacing:-.025em}
+.pc .m{font-size:15px;line-height:1.55}
+.price{font-weight:700;font-size:28px;letter-spacing:-.03em;text-wrap:balance}
+.price small{display:block;margin-top:6px;font-size:14px;letter-spacing:.02em}
+.steps li{padding:20px 0 20px 56px}
+.steps li::before{content:"0" counter(s);left:0;top:26px;font:600 12px/1 Inter,sans-serif;letter-spacing:.18em;color:var(--sig)}
+.steps b{font:600 17px Manrope,sans-serif;letter-spacing:-.01em;margin-bottom:2px}
+.steps span{font-size:15.5px;line-height:1.6}
+form label{font:600 11px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+input,select,textarea{border-radius:0;padding:14px 16px}
+summary{font-weight:600;font-size:19px;letter-spacing:-.012em}
+summary::after{font:300 26px/1 Inter,sans-serif;color:var(--mute)}
+details p{font-size:16.5px;line-height:1.7;max-width:58ch}
+footer b{font:600 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+footer a{font-size:15.5px}
+@media(max-width:860px){.q{padding:24px 0 24px 50px}.q::before{top:31px}.sys{letter-spacing:.14em;font-size:12px}}
 </style>
 </head>
 <body id="top">
@@ -324,17 +362,17 @@ html.has-cur select{cursor:pointer!important}
 </div>
 </div></section>
 
-<section><div class="w split">
+<section><div class="w split" data-eb="Where we start">
 <div><h2>Sound familiar?</h2><p class="lead">Every engagement starts with a business problem, not a channel.</p><a class="more" href="#consult">Bring us the one that sounds like yours</a></div>
 <ul class="qs">
-<li class="q">"We are spending, but I can't tell what is working."</li>
-<li class="q">"Our content is fine. It just doesn't move anything."</li>
-<li class="q">"Our agencies don't talk to each other."</li>
-<li class="q">"Everyone says AI. What does it change for my business?"</li>
+<li class="q">“We are spending, but I can’t tell what is working.”</li>
+<li class="q">“Our content is fine. It just doesn’t move anything.”</li>
+<li class="q">“Our agencies don’t talk to each other.”</li>
+<li class="q">“Everyone says AI. What does it change for my business?”</li>
 </ul>
 </div></section>
 
-<section><div class="w">
+<section><div class="w" data-eb="Our point of view">
 <h2>Marketing evolved. Now, it understands.</h2>
 <p class="lead">Four chapters, one direction. ERA is built for the last one.</p>
 <div class="stages">
@@ -345,7 +383,7 @@ html.has-cur select{cursor:pointer!important}
 </div>
 </div></section>
 
-<section id="services"><div class="w">
+<section id="services"><div class="w" data-eb="What we do">
 <h2>Six services. One connected system.</h2>
 <p class="lead">Understand people, build the strategy, create the communication, drive performance, learn from data, optimize growth.</p>
 <div class="svc">
@@ -359,7 +397,7 @@ html.has-cur select{cursor:pointer!important}
 <p class="sys">Strategy × Creative × Media × Data × Technology</p>
 </div></section>
 
-<section id="packages"><div class="w">
+<section id="packages"><div class="w" data-eb="How we work together">
 <h2>Start where your problem is.</h2>
 <p class="lead">Three ways to work with ERA. Each one begins with the same free consultation.</p>
 <div class="pk">
@@ -385,7 +423,7 @@ html.has-cur select{cursor:pointer!important}
 <h4>What you get</h4>
 <ol>
 <li><b>Funnel and spend audit</b><span>We follow the path from first impression to enquiry or sale, find where budget leaks, and rank the fixes by impact. You get a written audit, not a slide of opinions.</span></li>
-<li><b>Audience and customer insights</b><span>Who actually buys, what triggers the decision, and what holds people back. Built from your own data, platform analytics and your sales team's conversations.</span></li>
+<li><b>Audience and customer insights</b><span>Who actually buys, what triggers the decision, and what holds people back. Built from your own data, platform analytics and your sales team’s conversations.</span></li>
 <li><b>Tracking and measurement setup</b><span>Conversion events, pixels and one consistent campaign naming system, so every channel reports the same way and the numbers finally agree.</span></li>
 <li><b>Marketing dashboard</b><span>One live view of spend, leads, cost per lead and conversion rate. Built on your data and readable in a minute.</span></li>
 <li><b>90-day growth plan</b><span>Which channels, what budget split, which creative to test first, and which numbers define success. Clear enough for your team to execute.</span></li>
@@ -471,7 +509,7 @@ html.has-cur select{cursor:pointer!important}
 </div>
 </div></section>
 
-<section id="consult"><div class="w split">
+<section id="consult"><div class="w split" data-eb="Your next step">
 <div><h2>Book a free consultation.</h2><p class="lead">Tell us the problem. We will tell you what we would look at first.</p>
 <ol class="steps">
 <li><b>Send your details</b><span>Two minutes. Your request goes straight to our team.</span></li>
@@ -495,7 +533,7 @@ html.has-cur select{cursor:pointer!important}
 </form>
 </div></section>
 
-<section id="faq"><div class="w">
+<section id="faq"><div class="w" data-eb="Good to know">
 <h2>Questions, answered.</h2>
 <div class="faq">
 <details><summary>What happens in the free consultation?</summary><p>A 30-minute call where we look at your spend, funnel and tracking, then tell you where we would start. You leave with a written next step whether or not you hire us.</p></details>
