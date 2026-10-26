@@ -333,6 +333,12 @@ details p{font-size:16.5px;line-height:1.7;max-width:58ch}
 footer b{font:600 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
 footer a{font-size:15.5px}
 @media(max-width:860px){.q{padding:24px 0 24px 50px}.q::before{top:31px}.sys{letter-spacing:.14em;font-size:12px}}
+.pc{position:relative}
+.pn{margin:16px 0 0;font-size:13.5px;line-height:1.55;color:var(--mute)}
+.pc.hot .pn{color:rgba(248,245,240,.72)}
+.pn.pnh{color:var(--fg);padding-left:12px;border-left:2px solid var(--sig);font-weight:500}
+.rec{position:absolute;top:20px;right:20px;background:var(--sig);color:#1A1A1A;font:700 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
+.pc .price{font-size:clamp(24px,2.1vw,28px)}
 </style>
 </head>
 <body id="top">
@@ -402,17 +408,20 @@ footer a{font-size:15.5px}
 <p class="lead">Three ways to work with ERA. Each one begins with the same free consultation.</p>
 <div class="pk">
 <div class="pc"><h3>Foundation</h3><p class="m">For brands spending without knowing what works.</p><div class="price">EGP 25,000 <small>one-time</small></div>
+<p class="pn pnh" data-ek="c1">Pays for itself if you continue into Growth within 30 days: EGP 10,000 credit plus the EGP 15,000 setup fee waived.</p>
 <ul><li>Funnel and spend audit</li><li>Audience and customer insights</li><li>Tracking and measurement setup</li><li>Marketing dashboard</li><li>90-day growth plan</li></ul>
 <button class="mdl" type="button" data-d="1">More details</button>
-<a class="btn line" href="#consult" data-pkg="1">Start with Foundation</a></div>
-<div class="pc hot"><h3>Growth</h3><p class="m">For brands ready to turn insight into campaigns.</p><div class="price">From EGP 35,000 <small>per month</small></div>
+<a class="btn line" href="#consult" data-pkg="1">Discuss Foundation</a></div>
+<div class="pc hot"><span class="rec" data-ek="rec">Recommended</span><h3>Growth</h3><p class="m">For brands ready to turn insight into campaigns.</p><div class="price">EGP 35,000–85,000 <small>per month, based on your ad spend</small></div>
+<p class="pn" data-ek="c2">3-month minimum. One-time setup fee of EGP 15,000, waived if you start with Foundation.</p>
 <ul><li>Digital strategy and channel plan</li><li>Creative and social content</li><li>Paid social and search management</li><li>Conversion optimization</li><li>Monthly report and decision call</li></ul>
 <button class="mdl" type="button" data-d="2">More details</button>
-<a class="btn sig" href="#consult" data-pkg="2">Start with Growth</a></div>
+<a class="btn sig" href="#consult" data-pkg="2">Discuss Growth</a></div>
 <div class="pc"><h3>Intelligence</h3><p class="m">For brands that want one system, not five vendors.</p><div class="price">From EGP 120,000 <small>per month, scoped with you</small></div>
+<p class="pn" data-ek="c3">6-month minimum. Setup fee scoped in your written proposal.</p>
 <ul><li>Everything in Growth 3</li><li>Marketing automation and CRM workflows</li><li>AI-assisted personalization</li><li>Advanced analytics and forecasting</li><li>Dedicated ERA team</li></ul>
 <button class="mdl" type="button" data-d="3">More details</button>
-<a class="btn line" href="#consult" data-pkg="3">Start with Intelligence</a></div>
+<a class="btn line" href="#consult" data-pkg="3">Discuss Intelligence</a></div>
 </div>
 <p class="note">Ad spend is paid directly to the platforms and is not included. Not sure which fits? The consultation will tell you.</p>
 <div class="pdx" hidden>
@@ -439,7 +448,7 @@ footer a{font-size:15.5px}
 <h4>What we need from you</h4>
 <p>Read access to your ad accounts, analytics and website, a short conversation with whoever handles sales, and one person who can answer questions within a day or two.</p>
 <h4>Continuing into Growth</h4>
-<p>Sign a Growth package within 30 days of your final working session and EGP 10,000 is credited to your first month. The Growth setup fee is waived, because the groundwork is already done.</p>
+<p>Sign a Growth package within 30 days of your final working session and EGP 10,000 is credited to your first month. The Growth setup fee is waived, because the groundwork is already done. Together that is EGP 25,000, the full Foundation fee.</p>
 <h4>Not included</h4>
 <p>We do not run campaigns or produce content in Foundation, and ad spend is always paid directly to the platforms.</p>
 <p class="fnt">Ad spend is paid directly to the platforms and is not included in any ERA package.</p>
@@ -689,7 +698,8 @@ const SEC=['Hero','Problems','Evolution','Services','Packages','Consultation','F
 const roots=[...[...document.querySelectorAll('main > section')].map((s,i)=>[s,SEC[i]||'Section '+(i+1)]),[document.querySelector('.nav'),'Header'],[document.querySelector('footer'),'Footer'],[document.querySelector('.bar'),'Sticky button'],[document.getElementById('ab'),'About us']];
 const items=[];
 roots.forEach(([r,name])=>{let i=0;const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT,{acceptNode:n=>(!n.nodeValue.trim()||n.parentElement.closest('svg,script,style,textarea,#pkg,#wl,#ml,#ok,.mdl,.abl,.nx'))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
-let n;while((n=w.nextNode()))items.push({k:name+':'+(i++),sec:name,node:n,orig:n.nodeValue});});
+let n;while((n=w.nextNode())){const ek=n.parentElement.closest('[data-ek]');
+    if(ek){ek._c=(ek._c||0)+1;items.push({k:name+':'+ek.dataset.ek+'.'+ek._c,sec:name,node:n,orig:n.nodeValue})}else items.push({k:name+':'+(i++),sec:name,node:n,orig:n.nodeValue})}});
 
 function applyCfg(){$('wl').href='https://wa.me/'+cfg.wa;$('ml').href='mailto:'+cfg.mail;$('ml').textContent=cfg.mail}
 function syncPk(){const o=$('pkg').options;document.querySelectorAll('.pc h3').forEach((h,i)=>{if(o[i+1])o[i+1].textContent=h.textContent})}
