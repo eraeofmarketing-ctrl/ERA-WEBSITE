@@ -339,6 +339,23 @@ footer a{font-size:15.5px}
 .pn.pnh{color:var(--fg);padding-left:12px;border-left:2px solid var(--sig);font-weight:500}
 .rec{position:absolute;top:20px;right:20px;background:var(--sig);color:#1A1A1A;font:700 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
 .pc .price{font-size:clamp(24px,2.1vw,28px)}
+.pgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(12px,2.4vw,36px) clamp(10px,2vw,28px);align-items:center;margin-top:48px;padding:clamp(20px,3.4vw,48px);background:#fff;border:1px solid var(--rule)}
+.pl{display:flex;align-items:center;justify-content:center;height:84px;padding:6px 8px}
+.pl img{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1);opacity:.72;transition:filter .3s,opacity .3s,transform .3s}
+.pgrid.col .pl img{filter:none;opacity:1}
+a.pl:active img{filter:none;opacity:1}
+@media(hover:hover){a.pl:hover img,div.pl:hover img{filter:none;opacity:1;transform:scale(1.05)}}
+@media(max-width:860px){.pgrid{grid-template-columns:repeat(3,1fr);margin-top:36px}.pl{height:68px}}
+.pr{display:grid;grid-template-columns:76px 1fr auto;gap:10px;align-items:center;border:1px solid var(--rule);padding:10px;margin-bottom:10px;background:var(--card)}
+.pr .th{width:76px;height:56px;background:#fff;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;padding:4px}
+.pr .th img{max-width:100%;max-height:100%}
+.pr input{margin-bottom:6px;padding:8px 10px;font-size:14px}.pr input:last-child{margin-bottom:0}
+.pr .ac{display:flex;flex-direction:column;gap:4px}
+.pr .ac button{padding:4px 10px;font-size:14px;min-width:36px;line-height:1.2}
+#adm .ck{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:14px;color:var(--fg);text-transform:none;letter-spacing:0}
+#adm input[type=checkbox]{width:auto;margin:0;padding:0}
+.pdz{border:1.5px dashed var(--rule);padding:18px;text-align:center;color:var(--mute);font-size:14px;margin-bottom:14px}
+.pdz.on{border-color:var(--sig);color:var(--fg)}
 </style>
 </head>
 <body id="top">
@@ -346,13 +363,13 @@ footer a{font-size:15.5px}
 
 <header class="nav"><div class="w">
 <a href="#top" aria-label="ERA home"><svg class="logo" role="img" aria-label="ERA"><use href="#era"/></svg></a>
-<nav><a href="#services">Services</a><a href="#packages">Packages</a><a href="#faq">FAQ</a><a class="abl" href="#about">About us</a></nav>
+<nav><a href="#services">Services</a><a href="#packages">Packages</a><a class="nx" id="npl" href="#partners" hidden>Partners</a><a href="#faq">FAQ</a><a class="abl" href="#about">About us</a></nav>
 <a class="btn inv" href="#consult">Free consultation</a>
 <button class="ico" id="nacc" type="button" aria-label="Sign in" title="Sign in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></button>
 </div></header>
 
 <main>
-<section class="hero"><div class="w">
+<section class="hero" data-sec="Hero"><div class="w">
 <div>
 <div>
 <h1>Not just reaching people. <span>Understanding them.</span></h1>
@@ -368,7 +385,12 @@ footer a{font-size:15.5px}
 </div>
 </div></section>
 
-<section><div class="w split" data-eb="Where we start">
+<section id="partners" data-sec="Partners" hidden><div class="w" data-eb="Our partners">
+<h2>Partners we grow with.</h2>
+<p class="lead">The brands and teams we build with.</p>
+<div class="pgrid" id="pgrid"></div>
+</div></section>
+<section data-sec="Problems"><div class="w split" data-eb="Where we start">
 <div><h2>Sound familiar?</h2><p class="lead">Every engagement starts with a business problem, not a channel.</p><a class="more" href="#consult">Bring us the one that sounds like yours</a></div>
 <ul class="qs">
 <li class="q">“We are spending, but I can’t tell what is working.”</li>
@@ -378,7 +400,7 @@ footer a{font-size:15.5px}
 </ul>
 </div></section>
 
-<section><div class="w" data-eb="Our point of view">
+<section data-sec="Evolution"><div class="w" data-eb="Our point of view">
 <h2>Marketing evolved. Now, it understands.</h2>
 <p class="lead">Four chapters, one direction. ERA is built for the last one.</p>
 <div class="stages">
@@ -389,7 +411,7 @@ footer a{font-size:15.5px}
 </div>
 </div></section>
 
-<section id="services"><div class="w" data-eb="What we do">
+<section data-sec="Services" id="services"><div class="w" data-eb="What we do">
 <h2>Six services. One connected system.</h2>
 <p class="lead">Understand people, build the strategy, create the communication, drive performance, learn from data, optimize growth.</p>
 <div class="svc">
@@ -403,7 +425,7 @@ footer a{font-size:15.5px}
 <p class="sys">Strategy × Creative × Media × Data × Technology</p>
 </div></section>
 
-<section id="packages"><div class="w" data-eb="How we work together">
+<section data-sec="Packages" id="packages"><div class="w" data-eb="How we work together">
 <h2>Start where your problem is.</h2>
 <p class="lead">Three ways to work with ERA. Each one begins with the same free consultation.</p>
 <div class="pk">
@@ -518,7 +540,7 @@ footer a{font-size:15.5px}
 </div>
 </div></section>
 
-<section id="consult"><div class="w split" data-eb="Your next step">
+<section data-sec="Consultation" id="consult"><div class="w split" data-eb="Your next step">
 <div><h2>Book a free consultation.</h2><p class="lead">Tell us the problem. We will tell you what we would look at first.</p>
 <ol class="steps">
 <li><b>Send your details</b><span>Two minutes. Your request goes straight to our team.</span></li>
@@ -542,7 +564,7 @@ footer a{font-size:15.5px}
 </form>
 </div></section>
 
-<section id="faq"><div class="w" data-eb="Good to know">
+<section data-sec="FAQ" id="faq"><div class="w" data-eb="Good to know">
 <h2>Questions, answered.</h2>
 <div class="faq">
 <details><summary>What happens in the free consultation?</summary><p>A 30-minute call where we look at your spend, funnel and tracking, then tell you where we would start. You leave with a written next step whether or not you hire us.</p></details>
@@ -673,8 +695,16 @@ footer a{font-size:15.5px}
 <button class="btn sig" type="submit" style="margin-top:18px">Sign in</button><p id="aer" role="alert" style="margin-top:12px"></p>
 </form>
 <div id="aed" hidden style="display:flex;flex-direction:column;flex:1;min-height:0">
-<div class="tabs" role="tablist"><button role="tab" id="tc" aria-selected="true">Content</button><button role="tab" id="tl" aria-selected="false">Leads</button></div>
+<div class="tabs" role="tablist"><button role="tab" id="tc" aria-selected="true">Content</button><button role="tab" id="tl" aria-selected="false">Leads</button><button role="tab" id="tp" aria-selected="false">Partners</button></div>
 <div class="ab" id="aedc"></div>
+<div class="ab" id="app" hidden>
+<div class="pdz" id="pdz">Drop logos here, or use the button. PNG, JPG, WebP or SVG with a transparent or white background works best.</div>
+<div class="tb"><span id="pcnt"></span><button class="btn sig" id="padd" type="button">Add logos</button></div>
+<label class="ck"><input type="checkbox" id="pcol"> Always show logos in color (default is grey, color on hover)</label>
+<input type="file" id="pfile" accept="image/png,image/jpeg,image/webp,image/svg+xml" multiple hidden>
+<div id="pdl"></div>
+<p class="mu" style="font-size:13px;color:var(--mute)">Changes are live after you press <b>Save changes</b> at the top. The Partners section stays hidden until you add at least one logo.</p>
+</div>
 <div class="ab" id="alp" hidden><div class="tb"><span id="acnt"></span><button class="btn line" id="aref" type="button">Refresh</button><button class="btn line" id="acsv" type="button">Export CSV</button></div><div id="alst"></div></div>
 </div>
 <div id="ast" role="status"></div>
@@ -695,7 +725,7 @@ const waLink=t=>'https://wa.me/'+cfg.wa+'?text='+encodeURIComponent(t);
 
 /* ---- editable text discovery (every text node on the page) ---- */
 const SEC=['Hero','Problems','Evolution','Services','Packages','Consultation','FAQ'];
-const roots=[...[...document.querySelectorAll('main > section')].map((s,i)=>[s,SEC[i]||'Section '+(i+1)]),[document.querySelector('.nav'),'Header'],[document.querySelector('footer'),'Footer'],[document.querySelector('.bar'),'Sticky button'],[document.getElementById('ab'),'About us']];
+const roots=[...[...document.querySelectorAll('main > section')].map((s,i)=>[s,s.dataset.sec||SEC[i]||'Section '+(i+1)]),[document.querySelector('.nav'),'Header'],[document.querySelector('footer'),'Footer'],[document.querySelector('.bar'),'Sticky button'],[document.getElementById('ab'),'About us']];
 const items=[];
 roots.forEach(([r,name])=>{let i=0;const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT,{acceptNode:n=>(!n.nodeValue.trim()||n.parentElement.closest('svg,script,style,textarea,#pkg,#wl,#ml,#ok,.mdl,.abl,.nx'))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
 let n;while((n=w.nextNode())){const ek=n.parentElement.closest('[data-ek]');
@@ -810,8 +840,8 @@ $('asave').onclick=async()=>{
 };
 
 /* ---- admin: tabs + leads ---- */
-function tab(w){const c=w==='c';$('aedc').hidden=!c;$('alp').hidden=c;$('tc').setAttribute('aria-selected',c);$('tl').setAttribute('aria-selected',!c);if(!c)loadLeads()}
-$('tc').onclick=()=>tab('c');$('tl').onclick=()=>tab('l');$('aref').onclick=loadLeads;
+
+$('aref').onclick=loadLeads;
 const STS=['new','contacted','call_booked','proposal_sent','won','lost'];let L=[];
 async function patch(id,body){const tk=await tok();const r=await fetch(API+'/rest/v1/leads?id=eq.'+id,{method:'PATCH',headers:Object.assign(H(tk),{Prefer:'return=minimal'}),body:JSON.stringify(body)});st(r.ok?'Lead updated.':'Update failed ('+r.status+').',!r.ok)}
 async function loadLeads(){
@@ -1025,6 +1055,90 @@ document.querySelectorAll('.svc>div').forEach(c=>{let t;c.addEventListener('poin
   },{passive:true});
   addEventListener('mouseout',e=>{if(!e.relatedTarget)cr.classList.remove('on')});
 })();
+
+/* ---- partners: public grid + admin logo manager ---- */
+let PD={color:false,items:[]},pdTouched=false;
+const PUB=API+'/storage/v1/object/public/partners/';
+function renderPartners(){
+  const g=$('pgrid');g.replaceChildren();g.classList.toggle('col',!!PD.color);
+  PD.items.forEach(it=>{
+    if(!it.src||it.src.indexOf(PUB)!==0)return;
+    const img=mk('img',{src:it.src,alt:it.name||'',loading:'lazy',decoding:'async'});
+    const u=(it.url||'').trim(),href=u?(/^https?:\/\//i.test(u)?u:'https://'+u):'';
+    g.append(href?mk('a',{className:'pl',href,target:'_blank',rel:'noopener noreferrer',title:it.name||''},img):mk('div',{className:'pl'},img));
+  });
+  const n=g.children.length;$('partners').hidden=!n;$('npl').hidden=!n;
+}
+(async()=>{try{
+  const r=await fetch(API+'/rest/v1/site_content?id=eq.partners&select=data',{headers:H()});
+  const j=await r.json(),d=j[0]&&j[0].data;
+  if(d&&Array.isArray(d.items)){PD={color:!!d.color,items:d.items.filter(i=>i&&i.id&&i.src)};renderPartners()}
+}catch(e){}})();
+
+function prep(f){return new Promise(async(res,rej)=>{
+  try{
+    if(f.type==='image/svg+xml'){if(f.size>300000)return rej(new Error('SVG is larger than 300 KB'));return res({blob:f,type:'image/svg+xml',ext:'svg'})}
+    if(f.size>12000000)return rej(new Error('Image is larger than 12 MB'));
+    const bm=await createImageBitmap(f),s=Math.min(1,640/bm.width,320/bm.height);
+    const c=document.createElement('canvas');c.width=Math.max(1,Math.round(bm.width*s));c.height=Math.max(1,Math.round(bm.height*s));
+    c.getContext('2d').drawImage(bm,0,0,c.width,c.height);
+    c.toBlob(b=>{if(!b)return rej(new Error('Could not process the image'));res({blob:b,type:b.type,ext:b.type==='image/png'?'png':'webp'})},'image/webp',.92);
+  }catch(e){rej(e)}
+})}
+async function addLogos(files){
+  const tk=await tok();if(!tk){st('Session expired. Please sign in again.',1);return}
+  let ok=0;
+  for(const f of files){
+    if(!/^image\/(png|jpeg|webp|svg\+xml)$/.test(f.type)){st('Skipped '+f.name+': unsupported file type.',1);continue}
+    try{
+      st('Uploading '+f.name+'...');
+      const {blob,type,ext}=await prep(f),id=Date.now().toString(36)+Math.random().toString(36).slice(2,6)+'.'+ext;
+      const r=await fetch(API+'/storage/v1/object/partners/'+id,{method:'POST',headers:{apikey:C.supabaseKey,Authorization:'Bearer '+tk,'Content-Type':type,'x-upsert':'false'},body:blob});
+      if(!r.ok){let m='';try{m=(await r.json()).message||''}catch(e){}throw new Error(m||('status '+r.status+'. Did you run supabase_partners.sql?'))}
+      PD.items.push({id,name:f.name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').trim(),url:'',src:PUB+id});ok++;
+    }catch(e){st('Upload failed for '+f.name+': '+e.message,1);}
+  }
+  if(ok){pdTouched=true;renderPartners();buildPd();st(ok+' logo'+(ok>1?'s':'')+' added. Press Save changes to publish.')}
+}
+function buildPd(){
+  const box=$('pdl');box.replaceChildren();$('pcnt').textContent=PD.items.length+' logo'+(PD.items.length===1?'':'s');$('pcol').checked=!!PD.color;
+  PD.items.forEach((it,i)=>{
+    const n=mk('input',{type:'text',value:it.name||'',placeholder:'Name (used as alt text)'});n.oninput=()=>{it.name=n.value;pdTouched=true;renderPartners()};
+    const u=mk('input',{type:'url',value:it.url||'',placeholder:'Website link (optional)'});u.oninput=()=>{it.url=u.value;pdTouched=true;renderPartners()};
+    const mv=(d)=>{const j=i+d;if(j<0||j>=PD.items.length)return;[PD.items[i],PD.items[j]]=[PD.items[j],PD.items[i]];pdTouched=true;renderPartners();buildPd()};
+    const b1=mk('button',{type:'button',className:'btn line',textContent:'\u2191',onclick:()=>mv(-1)}),b2=mk('button',{type:'button',className:'btn line',textContent:'\u2193',onclick:()=>mv(1)});
+    b1.setAttribute('aria-label','Move up');b2.setAttribute('aria-label','Move down');
+    const del=mk('button',{type:'button',className:'btn line',textContent:'\u2715',onclick:async()=>{
+      if(!confirm('Remove this logo?'))return;
+      const tk=await tok();PD.items.splice(i,1);pdTouched=true;renderPartners();buildPd();
+      try{if(tk)await fetch(API+'/storage/v1/object/partners/'+it.id,{method:'DELETE',headers:{apikey:C.supabaseKey,Authorization:'Bearer '+tk}})}catch(e){}
+      st('Logo removed. Press Save changes to publish.')}});
+    del.setAttribute('aria-label','Remove logo');
+    box.append(mk('div',{className:'pr'},mk('div',{className:'th'},mk('img',{src:it.src,alt:''})),mk('div',{},n,u),mk('div',{className:'ac'},b1,b2,del)));
+  });
+}
+$('padd').onclick=()=>$('pfile').click();
+$('pfile').onchange=e=>{const f=[...e.target.files];e.target.value='';if(f.length)addLogos(f)};
+$('pcol').onchange=()=>{PD.color=$('pcol').checked;pdTouched=true;renderPartners()};
+const pz=$('pdz');
+['dragenter','dragover'].forEach(t=>pz.addEventListener(t,e=>{e.preventDefault();pz.classList.add('on')}));
+['dragleave','drop'].forEach(t=>pz.addEventListener(t,e=>{e.preventDefault();pz.classList.remove('on')}));
+pz.addEventListener('drop',e=>{const f=[...e.dataTransfer.files];if(f.length)addLogos(f)});
+async function savePartners(){
+  const tk=await tok();if(!tk)return false;
+  const r=await fetch(API+'/rest/v1/site_content?on_conflict=id',{method:'POST',headers:Object.assign(H(tk),{Prefer:'resolution=merge-duplicates,return=minimal'}),body:JSON.stringify({id:'partners',data:PD,updated_at:new Date().toISOString()})});
+  if(r.ok)pdTouched=false;return r.ok;
+}
+const saveContent=$('asave').onclick;
+$('asave').onclick=async()=>{
+  await saveContent();
+  if(pdTouched){const ok=await savePartners();st(ok?'Saved. Content and partners are live.':'Content saved, but partners could not be saved. Did you run supabase_partners.sql?',!ok)}
+};
+function tab(w){
+  [['c','aedc','tc'],['l','alp','tl'],['p','app','tp']].forEach(([k,pane,btn])=>{$(pane).hidden=k!==w;$(btn).setAttribute('aria-selected',k===w)});
+  if(w==='l')loadLeads();if(w==='p')buildPd();
+}
+$('tc').onclick=()=>tab('c');$('tl').onclick=()=>tab('l');$('tp').onclick=()=>tab('p');
 </script>
 
 </body>
