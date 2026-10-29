@@ -356,6 +356,37 @@ a.pl:active img{filter:none;opacity:1}
 #adm input[type=checkbox]{width:auto;margin:0;padding:0}
 .pdz{border:1.5px dashed var(--rule);padding:18px;text-align:center;color:var(--mute);font-size:14px;margin-bottom:14px}
 .pdz.on{border-color:var(--sig);color:var(--fg)}
+
+/* ---- Individual services ---- */
+.ind{margin-top:48px;border-top:1px solid var(--rule);counter-reset:ix}
+.ind>article{display:grid;grid-template-columns:56px 1fr 1.25fr auto;gap:12px 32px;align-items:start;padding:30px 0;border-bottom:1px solid var(--rule);counter-increment:ix;position:relative}
+.ind>article::before{content:"0" counter(ix);font:600 12px Manrope,sans-serif;letter-spacing:.14em;color:var(--mute);padding-top:8px}
+.ind h3{font-size:clamp(22px,2.4vw,28px);letter-spacing:-.02em;line-height:1.12}
+.ind .m{color:var(--mute);font-size:15px;margin-top:8px;max-width:34ch}
+.ind ul{list-style:none;padding:0}
+.ind li{color:var(--mute);font-size:15.5px;line-height:1.75;padding-left:18px;position:relative}
+.ind li::before{content:"";position:absolute;left:0;top:.82em;width:8px;height:2px;background:var(--sig)}
+.ind .btn{padding:11px 18px;font-size:14px;white-space:nowrap}
+.ind .tg{display:inline-block;margin-bottom:10px;background:var(--sig);color:#1A1A1A;font:700 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
+.ind>article.top{background:var(--card);padding-left:20px;padding-right:20px;border:1px solid var(--fg);margin-top:-1px}
+.ind-note{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
+.ind-note p{font:700 clamp(17px,2vw,22px) Manrope,sans-serif;letter-spacing:-.02em;max-width:38ch}
+.ind .ac{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.ind .mdl{margin:0}
+.ind-b{margin-top:32px;background:var(--fg);color:var(--bg);padding:32px;display:grid;grid-template-columns:1.1fr 1fr auto;gap:20px 40px;align-items:start}
+.ind-b h3{font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em;line-height:1.12}
+.ind-b .m{opacity:.75;font-size:15px;margin-top:10px;max-width:40ch}
+.ind-b .tg{display:inline-block;margin-bottom:12px;background:var(--sig);color:#1A1A1A;font:700 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
+.ind-b ul{list-style:none;padding:0}
+.ind-b li{font-size:15.5px;line-height:1.75;padding-left:18px;position:relative}
+.ind-b li::before{content:"";position:absolute;left:0;top:.82em;width:8px;height:2px;background:var(--sig)}
+.ind-b .ac{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.ind-b .mdl{margin:0}
+.ind-b .btn{padding:11px 18px;font-size:14px;white-space:nowrap}
+@media(max-width:860px){.ind-b{grid-template-columns:1fr;padding:24px 20px}}
+.ind .price,.ind-b .price{font-size:clamp(20px,2vw,24px);margin-top:14px}
+.ind .price small,.ind-b .price small{font-size:13px}
+@media(max-width:860px){.ind>article{grid-template-columns:1fr;gap:10px}.ind>article::before{padding-top:0}.ind .m{max-width:none}.ind .btn{justify-self:start;margin-top:8px}.ind>article.top{padding-left:16px;padding-right:16px}}
 </style>
 </head>
 <body id="top">
@@ -363,7 +394,7 @@ a.pl:active img{filter:none;opacity:1}
 
 <header class="nav"><div class="w">
 <a href="#top" aria-label="ERA home"><svg class="logo" role="img" aria-label="ERA"><use href="#era"/></svg></a>
-<nav><a href="#services">Services</a><a class="nx" id="npl" href="#partners" hidden>Partners</a><a href="#packages">Packages</a><a href="#faq">FAQ</a><a class="abl" href="#about">About us</a></nav>
+<nav><a href="#services">Services</a><a class="nx" id="npl" href="#partners" hidden>Partners</a><a href="#packages">Packages</a><a class="nx" href="#individual">Individual</a><a href="#faq">FAQ</a><a class="abl" href="#about">About us</a></nav>
 <a class="btn inv" href="#consult">Free consultation</a>
 <button class="ico" id="nacc" type="button" aria-label="Sign in" title="Sign in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></button>
 </div></header>
@@ -540,6 +571,201 @@ a.pl:active img{filter:none;opacity:1}
 </div>
 </div></section>
 
+<section data-sec="Individual" id="individual"><div class="w" data-eb="Individual services">
+<h2>Need one thing done right?</h2>
+<p class="lead">Not every brand needs a full engagement. Start with the one piece you are missing, built for digital from day one.</p>
+<div class="ind">
+<article><div><h3>Website design</h3><p class="m">A conversion-ready site, not a digital brochure.</p><div class="price">From EGP 20,000 <small>landing page or up to five pages</small></div></div>
+<ul><li>Landing page or compact multi-page site</li><li>Mobile-first, fast, and clear on one action</li><li>Analytics and tracking installed</li><li>WhatsApp and form integration</li></ul>
+<div class="ac"><button class="mdl" type="button" data-d="4">More details</button><a class="btn line" href="#consult" data-pkg="4">Request this</a></div></article>
+<article><div><h3>Social media account setup</h3><p class="m">Profiles that look like one brand and are ready to publish.</p><div class="price">EGP 6,000 <small>up to three platforms</small></div></div>
+<ul><li>Business accounts created under your ownership</li><li>Handles, bios and link-in-bio</li><li>Profile visuals and highlight covers</li><li>Starter content pillars</li></ul>
+<div class="ac"><button class="mdl" type="button" data-d="5">More details</button><a class="btn line" href="#consult" data-pkg="5">Request this</a></div></article>
+<article><div><h3>Personal brand plan</h3><p class="m">Know what you stand for before you post.</p><div class="price">EGP 9,000 <small>one-time</small></div></div>
+<ul><li>Positioning and target audience</li><li>Tone of voice and content pillars</li><li>Platform priorities</li><li>90-day content roadmap</li></ul>
+<div class="ac"><button class="mdl" type="button" data-d="6">More details</button><a class="btn line" href="#consult" data-pkg="6">Request this</a></div></article>
+<article><div><h3>Logo design</h3><p class="m">A mark that still works at profile-picture size.</p><div class="price">EGP 12,000 <small>two concepts, two revisions</small></div></div>
+<ul><li>Concept directions and one refined final</li><li>Light and dark versions</li><li>Files ready for web and social (SVG, PNG)</li><li>Profile and cover variations</li></ul>
+<div class="ac"><button class="mdl" type="button" data-d="7">More details</button><a class="btn line" href="#consult" data-pkg="7">Request this</a></div></article>
+<article class="top"><div><span class="tg">Most complete</span><h3>Complete brand kit</h3><p class="m">Everything you need to look consistent on every digital channel.</p><div class="price">EGP 30,000 <small>includes logo design</small></div></div>
+<ul><li>Logo system and usage rules</li><li>Colors, typography and imagery direction</li><li>Tone of voice</li><li>Social media templates</li><li>Digital brand guidelines (PDF)</li></ul>
+<div class="ac"><button class="mdl" type="button" data-d="8">More details</button><a class="btn sig" href="#consult" data-pkg="8">Request this</a></div></article>
+</div>
+<div class="ind-b"><div><span class="tg">Launch bundle</span><h3>Start from zero, launch as one brand.</h3><p class="m">Personal brand plan, complete brand kit, social media account setup and website design, built in the right order by one team.</p><div class="price">EGP 55,000 <small>one-time, instead of EGP 65,000 bought separately</small></div></div>
+<ul><li>Plan first, so every design decision has a reason</li><li>One timeline and one point of contact</li><li>One bundled price</li></ul>
+<div class="ac"><button class="mdl" type="button" data-d="9">More details</button><a class="btn sig" href="#consult" data-pkg="9">Request bundle</a></div></div>
+<div class="pdx" hidden>
+<div data-pd="4">
+<p class="pi">A marketing website built to do one job: turn visits into enquiries or sales. It is not a digital brochure, and it is not custom software.</p>
+<h4>Who it is for</h4>
+<p>Individuals, freelancers and small brands launching a first site, or replacing one that is slow, unclear or impossible to measure.</p>
+<h4>What you get</h4>
+<ol>
+<li><b>Structure and message</b><span>One clear page flow around one goal: what you offer, the proof, and the single action you want. We agree the structure with you before any design starts.</span></li>
+<li><b>Mobile-first design</b><span>Designed for the phone first, because that is where most visitors arrive, then adapted for larger screens in your brand colors and type.</span></li>
+<li><b>Fast, clean build</b><span>A lightweight build that loads quickly and works on every modern browser.</span></li>
+<li><b>Tracking installed</b><span>Analytics and conversion events set up from day one, so you can see what the site actually produces.</span></li>
+<li><b>Contact that works</b><span>WhatsApp, call and form buttons wired to the places where you really answer.</span></li>
+<li><b>Search basics</b><span>Page titles, descriptions and indexing set up so search engines can find and show the site.</span></li>
+</ol>
+<h4>Scope</h4>
+<p>A landing page or a compact site of up to five pages, and two rounds of revisions.</p>
+<h4>How it works</h4>
+<ul>
+<li><b>Week 1</b><span>Brief, goal and page structure agreed.</span></li>
+<li><b>Week 2</b><span>Design of the key pages, presented for feedback.</span></li>
+<li><b>Week 3</b><span>Build, tracking and contact integrations.</span></li>
+<li><b>Week 4</b><span>Review, fixes and launch.</span></li>
+</ul>
+<h4>What we need from you</h4>
+<p>Your logo and brand colors (or add a logo or brand kit to the work), your offer, photos or product images, and feedback within two working days.</p>
+<h4>Not included</h4>
+<p>Online stores with payments, custom web applications and member portals are scoped separately as a project. Domain and hosting fees are paid directly by you, and ongoing content updates are not part of this service.</p>
+<h4>Pricing</h4>
+<p>From EGP 20,000 for a landing page or a site of up to five pages, with two rounds of revisions. Larger sites are quoted after a short call. Fixed price, confirmed in writing before any work starts.</p>
+</div>
+<div data-pd="5">
+<p class="pi">Set your profiles up properly once: owned by you, consistent across platforms, and ready both to publish and to run ads on later.</p>
+<h4>Who it is for</h4>
+<p>New brands and individuals starting a presence, and brands whose existing accounts are messy, inconsistent or owned by someone who left.</p>
+<h4>What you get</h4>
+<ol>
+<li><b>Accounts created or cleaned up</b><span>Business profiles on up to three platforms, created or tidied, with you as the owner and administrator.</span></li>
+<li><b>Handles and bios</b><span>A consistent handle and a clear bio on each platform, plus one link-in-bio that points to what matters.</span></li>
+<li><b>Profile visuals</b><span>Profile picture, cover images and highlight covers in your brand look.</span></li>
+<li><b>Ad-ready structure</b><span>Business accounts and pages connected correctly, so campaigns can be launched later without rebuilding anything.</span></li>
+<li><b>Starter content pillars</b><span>Three to five themes to post about, with first post ideas for each.</span></li>
+</ol>
+<h4>Scope</h4>
+<p>Up to three platforms, setup only, and one round of revisions on the visuals.</p>
+<h4>How it works</h4>
+<ul>
+<li><b>Days 1 and 2</b><span>Brief, access and handle decisions.</span></li>
+<li><b>Days 3 to 5</b><span>Setup, bios and visuals.</span></li>
+<li><b>Days 6 and 7</b><span>Handover and a short walkthrough of how everything is organized.</span></li>
+</ul>
+<h4>What we need from you</h4>
+<p>Your logo and colors, a short description of what you do, handle names you prefer, and access to any accounts that already exist.</p>
+<h4>Not included</h4>
+<p>Content production, daily posting, community management and paid ads. Those live in ERA’s Social Media work and the Growth package. We never buy followers.</p>
+<h4>Pricing</h4>
+<p>EGP 6,000 for up to three platforms. Fixed price, confirmed in writing before any work starts.</p>
+</div>
+<div data-pd="6">
+<p class="pi">A short, practical strategy: who you are for, what you stand for, and what to post so people remember you for something specific.</p>
+<h4>Who it is for</h4>
+<p>Founders, professionals, consultants and creators who want to be known for one clear thing instead of posting without direction.</p>
+<h4>What you get</h4>
+<ol>
+<li><b>Positioning</b><span>One clear statement of who you help, with what, and why you rather than someone else.</span></li>
+<li><b>Audience</b><span>Who needs to notice you, what they care about, and where they spend their attention.</span></li>
+<li><b>Tone of voice</b><span>How you sound in writing and on camera, with examples of what to do and what to avoid.</span></li>
+<li><b>Content pillars</b><span>Three to five themes you can talk about for a year without running out.</span></li>
+<li><b>Platform priorities</b><span>The one or two platforms that deserve your time, and the reason for each.</span></li>
+<li><b>90-day roadmap</b><span>A weekly rhythm, the formats to use and the first topics to cover.</span></li>
+</ol>
+<h4>Scope</h4>
+<p>One working session, a written plan delivered as a PDF, and one round of revisions.</p>
+<h4>How it works</h4>
+<ul>
+<li><b>Week 1</b><span>Questionnaire and intake call.</span></li>
+<li><b>Week 2</b><span>Draft plan.</span></li>
+<li><b>Week 3</b><span>Walkthrough session and final plan.</span></li>
+</ul>
+<h4>What we need from you</h4>
+<p>Honest answers to the questionnaire, links to your current profiles, and a few examples of people or brands you admire.</p>
+<h4>Not included</h4>
+<p>Content production, account management and visual design. The plan is yours to run alone or to hand to a team. Visual identity is covered in the Complete brand kit.</p>
+<h4>Pricing</h4>
+<p>EGP 9,000, one-time. Fixed price, confirmed in writing before any work starts.</p>
+</div>
+<div data-pd="7">
+<p class="pi">A logo built for screens first. It has to stay readable at profile-picture size, work on light and dark backgrounds, and not look like everyone else’s.</p>
+<h4>Who it is for</h4>
+<p>New brands and individuals without a logo, and brands whose current logo breaks on mobile or in a small circle.</p>
+<h4>What you get</h4>
+<ol>
+<li><b>Brief and direction</b><span>A short questionnaire and a review of references, so the design starts from your positioning and not from taste alone.</span></li>
+<li><b>Concept directions</b><span>Two concept directions, each presented with the reasoning behind it.</span></li>
+<li><b>Refinement</b><span>One direction chosen and refined with you through two rounds of revisions.</span></li>
+<li><b>Final files</b><span>Light, dark and icon-only versions as SVG and PNG, ready for web and social.</span></li>
+<li><b>Social versions</b><span>Profile picture and cover variations sized for the main platforms.</span></li>
+</ol>
+<h4>Scope</h4>
+<p>Two concepts and two revision rounds.</p>
+<h4>How it works</h4>
+<ul>
+<li><b>Week 1</b><span>Brief and references.</span></li>
+<li><b>Week 2</b><span>Two concept directions presented.</span></li>
+<li><b>Week 3</b><span>Refinement and delivery of all files.</span></li>
+</ul>
+<h4>What we need from you</h4>
+<p>Your name, what you do, who you serve, examples you like and dislike, and one person who makes the final decision.</p>
+<h4>Not included</h4>
+<p>Full brand guidelines, stationery, packaging, signage and printed material. The Complete brand kit covers digital guidelines. We do not provide trademark searches or registration.</p>
+<h4>Pricing</h4>
+<p>EGP 12,000 for two concepts and two rounds of revisions. The logo is already included in the Complete brand kit.</p>
+</div>
+<div data-pd="8">
+<p class="pi">Your logo plus the rules and templates that keep everything looking like one brand on every digital channel, whoever is posting.</p>
+<h4>Who it is for</h4>
+<p>Brands about to launch, and brands whose posts, website and ads look like they come from different companies.</p>
+<h4>What you get</h4>
+<ol>
+<li><b>Logo system</b><span>Primary, secondary and icon versions in light and dark, with clear-space and minimum-size rules.</span></li>
+<li><b>Colors</b><span>A palette with usage ratios and contrast that stays readable on screens.</span></li>
+<li><b>Typography</b><span>A type pairing with fonts you can use freely on the web and in your own tools.</span></li>
+<li><b>Imagery direction</b><span>The style of photos and graphics to use, and what to avoid.</span></li>
+<li><b>Tone of voice</b><span>A short voice guide with real examples for captions, ads and replies.</span></li>
+<li><b>Social templates</b><span>A starter set of editable templates for posts, stories and covers that your team can reuse.</span></li>
+<li><b>Digital brand guidelines</b><span>One PDF that puts all of it in one place for you, your team and any freelancer.</span></li>
+</ol>
+<h4>Scope</h4>
+<p>Logo design (two concepts), palette, type, voice, templates and guidelines, with two rounds of revisions.</p>
+<h4>How it works</h4>
+<ul>
+<li><b>Week 1</b><span>Discovery and positioning.</span></li>
+<li><b>Week 2</b><span>Logo concepts presented.</span></li>
+<li><b>Week 3</b><span>Logo refined, colors and type defined.</span></li>
+<li><b>Week 4</b><span>Templates and guidelines delivered.</span></li>
+</ul>
+<h4>What we need from you</h4>
+<p>Your name, what you do, who you serve, competitors and brands you admire, and one person who makes the final decision.</p>
+<h4>Not included</h4>
+<p>Print and packaging design, signage and other offline material. Website design and account setup are separate services. We do not provide trademark searches or registration.</p>
+<h4>Pricing</h4>
+<p>EGP 30,000, including logo design. Fixed price, confirmed in writing before any work starts.</p>
+</div>
+<div data-pd="9">
+<p class="pi">Four services in the right order: decide who you are, design how you look, set up where you appear, then build the place people land.</p>
+<h4>Who it is for</h4>
+<p>New brands and individuals launching from zero who want one team, one timeline and everything consistent from the first post.</p>
+<h4>What you get</h4>
+<ol>
+<li><b>1. Personal brand plan</b><span>Positioning, audience, voice and content pillars. This is the brief that everything after it follows.</span></li>
+<li><b>2. Complete brand kit</b><span>Logo, colors, type, templates and digital guidelines, designed from the plan and not from taste.</span></li>
+<li><b>3. Social media account setup</b><span>Profiles created under your ownership, using the new kit, ready to publish and to advertise on.</span></li>
+<li><b>4. Website design</b><span>A conversion-ready site in the same look and message, with tracking installed from the first day.</span></li>
+</ol>
+<h4>Scope</h4>
+<p>The scope of each service is exactly as described on its own details screen. You get one point of contact and one timeline.</p>
+<h4>How it works</h4>
+<ul>
+<li><b>Weeks 1 and 2</b><span>Personal brand plan.</span></li>
+<li><b>Weeks 3 to 6</b><span>Complete brand kit.</span></li>
+<li><b>Week 7</b><span>Social media account setup.</span></li>
+<li><b>Weeks 8 to 10</b><span>Website design and launch.</span></li>
+</ul>
+<h4>What we need from you</h4>
+<p>One person who makes decisions, and feedback within two working days. A delay on your side moves the whole timeline.</p>
+<h4>Not included</h4>
+<p>Content production, daily posting, paid ads, online stores with payments, and print or packaging. When you are ready to run campaigns, this foundation carries straight into ERA’s Foundation and Growth packages.</p>
+<h4>Pricing</h4>
+<p>EGP 55,000, one-time, instead of EGP 65,000 when the four services are bought separately. Confirmed in writing before any work starts.</p>
+</div>
+</div>
+</div></section>
+
 <section data-sec="Consultation" id="consult"><div class="w split" data-eb="Your next step">
 <div><h2>Book a free consultation.</h2><p class="lead">Tell us the problem. We will tell you what we would look at first.</p>
 <ol class="steps">
@@ -558,7 +784,7 @@ a.pl:active img{filter:none;opacity:1}
 <label for="pr">What is the main problem?</label>
 <select id="pr" name="problem"><option>We are spending but cannot tell what works</option><option>Our content does not move anything</option><option>Our agencies do not work together</option><option>I want to understand what AI changes for us</option><option>Something else</option></select>
 <label for="pkg">Package you are considering</label>
-<select id="pkg" name="pkg"><option>Not sure yet</option><option>Foundation</option><option>Growth</option><option>Intelligence</option></select>
+<select id="pkg" name="pkg"><option>Not sure yet</option><option>Foundation</option><option>Growth</option><option>Intelligence</option><option>Individual: Website design</option><option>Individual: Social media account setup</option><option>Individual: Personal brand plan</option><option>Individual: Logo design</option><option>Individual: Complete brand kit</option><option>Individual: Launch bundle</option></select>
 <button class="btn sig" type="submit">Book my free consultation</button>
 <p id="ok" role="status" hidden></p>
 </form>
@@ -572,13 +798,14 @@ a.pl:active img{filter:none;opacity:1}
 <details><summary>How do you measure results?</summary><p>Every engagement is built around the numbers that matter to your business, such as conversion, acquisition cost and lead quality. Each report covers what happened, why, and what we do next.</p></details>
 <details><summary>Do you handle TV, PR or events?</summary><p>No. ERA is focused on digital growth. When a project needs something outside that, we say so and bring in a trusted partner rather than stretch ourselves thin.</p></details>
 <details><summary>Do I need to be using AI already?</summary><p>No. We apply AI where it helps you understand customers or remove repetitive work, and we explain what it changes for your business in plain language.</p></details>
+<details><summary>Can I hire you for just one thing, like a logo or a website?</summary><p>Yes. Individual services have a fixed scope and a clear deliverable. We build them for digital use, so your website, profiles and brand kit work together and are ready to be measured.</p></details>
 </div>
 </div></section>
 </main>
 
 <footer><div class="w">
 <div><svg class="logo" role="img" aria-label="ERA"><use href="#era"/></svg><div class="desc">The Evolution of Marketing</div><p>Marketing evolved. Now, it understands.</p></div>
-<div><b>ERA</b><a href="#services">Services</a><a href="#packages">Packages</a><a href="#faq">FAQ</a><a class="abl" href="#about">About us</a></div>
+<div><b>ERA</b><a href="#services">Services</a><a href="#packages">Packages</a><a class="nx" href="#individual">Individual</a><a href="#faq">FAQ</a><a class="abl" href="#about">About us</a></div>
 <div><b>Talk to us</b><a href="#consult">Free consultation</a><a id="wl" href="#">WhatsApp</a><a id="ml" href="#">hello@era.agency</a><p style="margin-top:16px">&copy; 2026 ERA</p></div>
 </div></footer>
 <div class="bar"><a class="btn sig" href="#consult">Book a free consultation</a></div>
@@ -993,10 +1220,10 @@ $('mrout').onclick=async()=>{try{if(S)await fetch(API+'/auth/v1/logout',{method:
 /* ---- package details screen ---- */
 let pmFrom=null;
 function openPM(i,btn){
-  const card=btn.closest('.pc'),src=document.querySelector('[data-pd="'+i+'"]');if(!src)return;
-  $('pme').textContent='Package 0'+i+' / 03';$('pmt').textContent=card.querySelector('h3').textContent;
+  const card=btn.closest('.pc,.ind>article,.ind-b'),src=document.querySelector('[data-pd="'+i+'"]');if(!src)return;
+  const k=+i;$('pme').textContent=k<4?'Package 0'+i+' / 03':(k===9?'Bundle':'Individual service 0'+(k-3)+' / 05');$('pmt').textContent=card.querySelector('h3').textContent;
   $('pmd').textContent=card.querySelector('.m').textContent;
-  $('pmp').replaceChildren(...card.querySelector('.price').cloneNode(true).childNodes);
+  const pr=card.querySelector('.price');$('pmp').replaceChildren(...(pr?pr.cloneNode(true).childNodes:[]));
   $('pmb').replaceChildren(src.cloneNode(true));
   const s=$('pms');s.textContent=card.querySelector('[data-pkg]').textContent;s.dataset.i=i;
   $('pm').hidden=false;pmFrom=btn;document.body.style.overflow='hidden';
