@@ -393,6 +393,32 @@ a.pl:active img{filter:none;opacity:1}
 .ap-r{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;align-items:center;margin-top:8px}
 .ap-r label{margin:0}.ap-h{margin-top:20px;font:700 12px Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--sig)}
 .ap-s{margin-top:18px;padding:12px;border:1px solid var(--rule);font-size:14px}
+/* ---- timed consultation popup ---- */
+.md.po{width:min(440px,100%);padding:0}
+.po-h{background:#1A1A1A;color:#F8F5F0;padding:22px 24px 18px}
+.po-h .logo{color:#F8F5F0;width:78px;height:22px}
+.po .x{color:#F8F5F0;top:8px;right:12px;z-index:2}
+.po-e{font:700 11px Inter,sans-serif;letter-spacing:.14em;color:var(--sig);margin:18px 0 6px}
+.md.po .po-h h3{font-size:clamp(22px,5.6vw,27px);line-height:1.1;letter-spacing:-.025em;padding-right:0;color:#F8F5F0}
+.po-l{color:#A9A59D;font-size:14px;line-height:1.5;margin-top:8px}
+.md.po .po-b{padding:18px 24px 20px}
+.po-ph{display:grid;grid-template-columns:116px 1fr;gap:10px}
+.po-ph select{padding-left:10px;padding-right:6px}
+.po-k{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px;line-height:1.4;text-transform:none;letter-spacing:0;margin:0 0 10px;cursor:pointer}
+.po-k input{width:18px;height:18px;margin:2px 0 0;padding:0;flex:none;accent-color:var(--sig)}
+.po-o{font-weight:400;color:var(--mute);text-transform:none;letter-spacing:0}
+#po .po-b input,#po .po-b select{margin-bottom:14px}
+#po .po-ph select,#po .po-ph input{margin-bottom:16px}
+#po .po-k input{margin:2px 0 0}
+#po-s{width:100%;margin-top:6px}
+.po-w{display:block;text-align:center;margin-top:12px;font-weight:600;font-size:15px;color:inherit}
+.po-f{margin-top:10px;font-size:12px;line-height:1.45;color:var(--mute)}
+#po-m{margin-top:12px;font-size:14px;font-weight:600}
+.po-d{padding:26px 24px 28px}
+.po-d h3{font-size:26px;padding-right:0}.po-d p{margin-top:10px;color:var(--mute)}
+.po-d .btn{width:100%;margin-top:18px}
+@media(prefers-reduced-motion:no-preference){.md.po{animation:poin .35s ease-out both}@keyframes poin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}}
+@media(max-width:480px){.po-h{padding:22px 20px 18px}.md.po .po-b{padding:18px 20px 20px}.po-d{padding:22px 20px 24px}}
 </style>
 </head>
 <body id="top">
@@ -816,6 +842,26 @@ a.pl:active img{filter:none;opacity:1}
 </div></footer>
 <div class="bar"><a class="btn sig" href="#consult">Book a free consultation</a></div>
 
+<div class="ov" id="po" hidden><div class="md po" role="dialog" aria-modal="true" aria-labelledby="po-t" tabindex="-1">
+<button class="x" id="poc" type="button" aria-label="Close">&times;</button>
+<div class="po-h"><svg class="logo" role="img" aria-label="ERA"><use href="#era"/></svg>
+<p class="po-e">FREE 30-MINUTE CONSULTATION</p>
+<h3 id="po-t">Let’s find what is holding your growth back.</h3>
+<p class="po-l">Leave your details. We look at your digital marketing and give you a clear written next step. No obligation.</p></div>
+<form id="pof" class="po-b" novalidate>
+<label for="po-e">Email</label><input id="po-e" type="email" required autocomplete="email" placeholder="you@company.com">
+<label for="po-p">WhatsApp number <span class="po-o">(optional)</span></label>
+<div class="po-ph"><select id="po-c" aria-label="Country code"><option value="20">EG +20</option><option value="966">SA +966</option><option value="971">AE +971</option><option value="965">KW +965</option><option value="974">QA +974</option><option value="973">BH +973</option><option value="968">OM +968</option><option value="962">JO +962</option><option value="44">UK +44</option><option value="1">US +1</option></select><input id="po-p" type="tel" autocomplete="tel-national" placeholder="10 1234 5678"></div>
+<label class="po-k"><input type="checkbox" id="po-u"><span><b>I need a quick reply.</b> Mark my request as urgent and contact me first.</span></label>
+<label class="po-k"><input type="checkbox" id="po-n"><span>Send me ERA’s marketing news and insights by email. Unsubscribe anytime.</span></label>
+<input class="hp" id="po-h" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button class="btn sig" type="submit" id="po-s">Book my free consultation</button>
+<p id="po-m" role="status" hidden></p>
+<a class="po-w" id="po-w" href="#" target="_blank" rel="noopener">Or message us on WhatsApp now</a>
+<p class="po-f">We use your details only to reply to your request, and to send the emails you chose.</p>
+</form>
+<div class="po-d" id="po-d" hidden><h3 id="po-dt">Thank you.</h3><p id="po-dp"></p><a class="btn sig" id="po-dw" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a></div>
+</div></div>
 <div class="ov" id="au" hidden><div class="md" role="dialog" aria-modal="true" aria-label="Your ERA account">
 <button class="x" id="auc" type="button" aria-label="Close">&times;</button>
 <div class="tabs" id="au-tabs" role="tablist"><button id="ti" role="tab" aria-selected="true" type="button">Sign in</button><button id="tu" role="tab" aria-selected="false" type="button">Create account</button></div>
@@ -928,7 +974,7 @@ a.pl:active img{filter:none;opacity:1}
 <button class="btn sig" type="submit" style="margin-top:18px">Sign in</button><p id="aer" role="alert" style="margin-top:12px"></p>
 </form>
 <div id="aed" hidden style="display:flex;flex-direction:column;flex:1;min-height:0">
-<div class="tabs" role="tablist"><button role="tab" id="tc" aria-selected="true">Content</button><button role="tab" id="tl" aria-selected="false">Leads</button><button role="tab" id="tp" aria-selected="false">Partners</button><button role="tab" id="tpr" aria-selected="false">Pricing</button></div>
+<div class="tabs" role="tablist"><button role="tab" id="tc" aria-selected="true">Content</button><button role="tab" id="tl" aria-selected="false">Leads</button><button role="tab" id="tp" aria-selected="false">Partners</button><button role="tab" id="tpr" aria-selected="false">Pricing</button><button role="tab" id="tsb" aria-selected="false">Emails</button></div>
 <div class="ab" id="aedc"></div>
 <div class="ab" id="app" hidden>
 <div class="pdz" id="pdz">Drop logos here, or use the button. PNG, JPG, WebP or SVG with a transparent or white background works best.</div>
@@ -937,6 +983,11 @@ a.pl:active img{filter:none;opacity:1}
 <input type="file" id="pfile" accept="image/png,image/jpeg,image/webp,image/svg+xml" multiple hidden>
 <div id="pdl"></div>
 <p class="mu" style="font-size:13px;color:var(--mute)">Changes are live after you press <b>Save changes</b> at the top. The Partners section stays hidden until you add at least one logo.</p>
+</div>
+<div class="ab" id="asb" hidden>
+<p class="mu" style="font-size:13px;color:var(--mute)">People who ticked the marketing news box in the popup. Copy the list into your email tool.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:12px 0"><b id="sbc"></b><span style="display:flex;gap:8px"><button class="btn line" id="sbcp" type="button">Copy emails</button><button class="btn line" id="sbcsv" type="button">Download CSV</button></span></div>
+<div id="sbl"></div>
 </div>
 <div class="ab" id="apr" hidden>
 <p class="mu" style="font-size:13px;color:var(--mute)">Prices are visible here only. Visitors see a free-consultation button instead of any price. Prices are stored in a private table that only admins can read.</p>
@@ -1002,6 +1053,51 @@ f.addEventListener('submit',async e=>{
   }catch(err){say('We could not save your request. Please send it on WhatsApp instead.',t)}
   btn.disabled=false;btn.textContent=label;
 });
+
+/* ---- timed consultation popup: appears 20 seconds after the page opens ---- */
+(()=>{
+  const po=$('po'),pf=$('pof'),KEY='era_popup',DAY=864e5,m=$('po-m');let from=null,shown=false;
+  const mute=days=>{try{localStorage.setItem(KEY,JSON.stringify({until:Date.now()+days*DAY}))}catch(e){}};
+  const muted=()=>{try{const r=JSON.parse(localStorage.getItem(KEY)||'null');return !!(r&&r.until>Date.now())}catch(e){return false}};
+  const busy=()=>!!document.querySelector('.ov:not([hidden]):not(#po),#adm:not([hidden]),#ab:not([hidden])');
+  const typing=()=>{const a=document.activeElement;return !!(a&&a.closest&&a.closest('#f,#adm'))||['n','e','p'].some(id=>$(id).value.trim())};
+  const msg=(t,bad)=>{m.hidden=false;m.textContent=t;m.style.color=bad?'var(--sig)':'inherit'};
+  function close(days){if(po.hidden)return;po.hidden=true;document.body.style.overflow='';mute(days==null?7:days);if(from&&from.focus)from.focus()}
+  function show(){shown=true;from=document.activeElement;const w=waLink('Hi ERA, I would like a quick free consultation.');$('po-w').href=w;$('po-dw').href=w;po.hidden=false;document.body.style.overflow='hidden';setTimeout(()=>$('po-e').focus(),60)}
+  function fire(){
+    if(shown||muted()||/[?&]nopopup\b/.test(location.search))return;
+    if(typing())return; /* never interrupt someone who is already filling the form */
+    if(document.hidden||busy()){setTimeout(fire,3000);return} /* wait until the visitor can actually see it */
+    show()}
+  setTimeout(fire,20000);
+  $('poc').onclick=()=>close();
+  po.addEventListener('click',e=>{if(e.target===po)close()});
+  po.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){e.stopPropagation();close();return}
+    if(e.key!=='Tab')return;
+    const f=[...po.querySelectorAll('button,a[href],input:not(.hp),select')].filter(x=>x.offsetParent!==null&&!x.disabled);if(!f.length)return;
+    const a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});
+  pf.addEventListener('submit',async e=>{
+    e.preventDefault();if($('po-h').value)return;
+    const em=$('po-e').value.trim(),local=$('po-p').value.replace(/\D/g,'').replace(/^0+/,''),urgent=$('po-u').checked,news=$('po-n').checked;
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){msg('Please enter a valid email.',1);$('po-e').focus();return}
+    if(local&&local.length<7){msg('Please check your number.',1);$('po-p').focus();return}
+    if(urgent&&!local){msg('For a quick reply, please add your WhatsApp number.',1);$('po-p').focus();return}
+    const btn=$('po-s'),label=btn.textContent;btn.disabled=true;btn.textContent='Sending...';m.hidden=true;
+    const q=new URLSearchParams(location.search),phone=local?'+'+$('po-c').value+local:'Not provided';
+    const row={name:'Popup lead',email:em,phone,website:null,monthly_spend:'Not specified',main_problem:urgent?'URGENT: asked for a quick reply (website popup)':'Free consultation request (website popup)',package_interest:'Not sure yet',utm_source:q.get('utm_source'),utm_medium:q.get('utm_medium'),utm_campaign:q.get('utm_campaign'),page_url:location.href.slice(0,500)};
+    try{
+      const tk=await tok();if(tk&&S&&S.uid)row.user_id=S.uid;
+      const r=await fetch(API+'/rest/v1/leads',{method:'POST',headers:Object.assign(H(tk),{Prefer:'return=minimal'}),body:JSON.stringify(row)});
+      if(!r.ok)throw new Error(r.status);
+      if(news){try{await fetch(API+'/rest/v1/subscribers?on_conflict=email',{method:'POST',headers:Object.assign(H(),{Prefer:'resolution=ignore-duplicates,return=minimal'}),body:JSON.stringify({email:em.toLowerCase(),source:'popup',page_url:location.href.slice(0,500),consent_text:'Send me ERA marketing news and insights by email.'})})}catch(x){}}
+      mute(90);pf.hidden=true;$('po-d').hidden=false;
+      $('po-dt').textContent=urgent?'Marked as urgent.':'Thank you.';
+      $('po-dp').textContent=(urgent?'Your request is in and our team will reach out to you first.':'Your request is in. We will contact you to set up your 30-minute call, usually within one business day.')+(news?' You will also get ERA’s marketing news and insights by email.':'');
+    }catch(err){msg('We could not send your request. Please message us on WhatsApp instead.',1);btn.disabled=false;btn.textContent=label}
+  });
+})();
 
 /* ---- admin: session ---- */
 let S=null;try{S=JSON.parse(localStorage.getItem('era_s'))}catch(e){}
@@ -1392,11 +1488,26 @@ async function loadPr(){const tk=await tok();if(!tk){showLogin();return}
 $('prsave').onclick=async()=>{const tk=await tok();if(!tk){st('Session expired. Please sign in again.',1);showLogin();return}st('Saving prices...');
   try{const r=await fetch(API+'/rest/v1/admin_prices?on_conflict=id',{method:'POST',headers:Object.assign(H(tk),{Prefer:'resolution=merge-duplicates,return=minimal'}),body:JSON.stringify({id:'main',data:PR,updated_at:new Date().toISOString()})});
     st(r.ok?'Prices saved. Only admins can see them.':'Could not save prices ('+r.status+'). Did you run supabase_admin_prices.sql?',!r.ok)}catch(e){st('Could not reach the server.',1)}};
+
+/* ---- admin: email subscribers ---- */
+let SUBS=[];
+async function loadSubs(){const tk=await tok();if(!tk){showLogin();return}
+  const b=$('sbl');b.replaceChildren();
+  const r=await fetch(API+'/rest/v1/subscribers?select=*&order=created_at.desc&limit=2000',{headers:H(tk)});
+  if(!r.ok){b.textContent='Could not load subscribers ('+r.status+'). Did you run supabase_subscribers.sql?';return}
+  SUBS=await r.json();$('sbc').textContent=SUBS.length+(SUBS.length===1?' subscriber':' subscribers');
+  SUBS.forEach(x=>b.append(mk('div',{className:'ap-r',style:'grid-template-columns:1fr auto auto'},
+    mk('span',{textContent:x.email}),mk('small',{textContent:(x.created_at||'').slice(0,10)}),
+    mk('button',{className:'del',type:'button',textContent:'Delete',onclick:async()=>{if(!confirm('Delete this subscriber?'))return;const t2=await tok();const r2=await fetch(API+'/rest/v1/subscribers?id=eq.'+x.id,{method:'DELETE',headers:H(t2)});if(r2.ok)loadSubs();else st('Could not delete ('+r2.status+').',1)}}))))}
+const subList=()=>SUBS.filter(x=>!x.unsubscribed).map(x=>x.email);
+$('sbcp').onclick=async()=>{try{await navigator.clipboard.writeText(subList().join(', '));st('Copied '+subList().length+' emails.')}catch(e){st('Could not copy. Use Download CSV.',1)}};
+$('sbcsv').onclick=()=>{const rows=['email,date,source'].concat(SUBS.filter(x=>!x.unsubscribed).map(x=>[x.email,(x.created_at||'').slice(0,10),x.source||''].map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')));
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([rows.join('\n')],{type:'text/csv'}));a.download='era-subscribers.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
 function tab(w){
-  [['c','aedc','tc'],['l','alp','tl'],['p','app','tp'],['r','apr','tpr']].forEach(([k,pane,btn])=>{$(pane).hidden=k!==w;$(btn).setAttribute('aria-selected',k===w)});
-  if(w==='l')loadLeads();if(w==='p')buildPd();if(w==='r')loadPr();
+  [['c','aedc','tc'],['l','alp','tl'],['p','app','tp'],['r','apr','tpr'],['s','asb','tsb']].forEach(([k,pane,btn])=>{$(pane).hidden=k!==w;$(btn).setAttribute('aria-selected',k===w)});
+  if(w==='l')loadLeads();if(w==='p')buildPd();if(w==='r')loadPr();if(w==='s')loadSubs();
 }
-$('tc').onclick=()=>tab('c');$('tl').onclick=()=>tab('l');$('tp').onclick=()=>tab('p');$('tpr').onclick=()=>tab('r');
+$('tc').onclick=()=>tab('c');$('tl').onclick=()=>tab('l');$('tp').onclick=()=>tab('p');$('tpr').onclick=()=>tab('r');$('tsb').onclick=()=>tab('s');
 </script>
 
 </body>
