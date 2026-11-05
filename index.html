@@ -91,23 +91,11 @@ footer a{display:block;text-decoration:none;padding:3px 0}footer b{display:block
 .bar .btn{width:100%}
 @media(max-width:860px){.nav nav{display:none}.nav .btn{margin-left:auto}.hero .w>div,.split,footer .w{grid-template-columns:1fr;gap:32px}.ap{max-width:160px;justify-self:start}.proof,.svc,.pk{grid-template-columns:1fr}.stages{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr;gap:0}section{padding:72px 0}.bar{display:block}footer{padding-bottom:110px}}
 [hidden]{display:none!important}
-#adm{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);z-index:60;background:var(--bg);color:var(--fg);border-left:1px solid var(--fg);display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.2);padding-top:env(safe-area-inset-top,0px);font-size:15px}
-.ah{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
-.ah b{font:800 16px Manrope,sans-serif;margin-right:auto}
-.ah .btn{padding:8px 14px;font-size:13px}
-.ah .x{background:none;border:0;color:inherit;font-size:28px;line-height:1;cursor:pointer;padding:0 6px}
-#aact{display:flex;gap:8px}
-.tabs{display:flex;border-bottom:1px solid var(--rule)}
-.tabs button{flex:1;padding:12px;background:none;border:0;border-bottom:3px solid transparent;color:var(--mute);font:700 14px Manrope,sans-serif;cursor:pointer}
-.tabs button[aria-selected=true]{color:var(--fg);border-color:var(--sig)}
-.ab{flex:1;overflow:auto;padding:16px}
-#alog{background:none;border:0;padding:24px 16px}
 #adm details{padding:12px 0}
 #adm summary{font-size:16px}
 #adm label{font-weight:500;font-size:12px;color:var(--mute);margin:10px 0 4px}
 #adm input,#adm textarea,#adm select{margin-bottom:0;padding:9px 10px;font-size:15px}
 #adm textarea{resize:vertical;line-height:1.4}
-#ast{padding:8px 16px;font-size:13px;border-top:1px solid var(--rule);min-height:36px}
 .tb{display:flex;gap:8px;align-items:center;margin-bottom:12px}.tb span{margin-right:auto;color:var(--mute)}
 .tb .btn{padding:8px 12px;font-size:13px}
 .lc{border:1px solid var(--rule);padding:14px;margin-bottom:12px;background:var(--card);font-size:14px;line-height:1.5}
@@ -488,6 +476,95 @@ a.pl:active img{filter:none;opacity:1}
 .hxdone .hxwhen{color:var(--fg);font:800 20px Manrope,sans-serif;margin-top:18px}
 .hxdone .cta{justify-content:center;margin-top:26px}
 @media(max-width:700px){#hx{padding:48px 0 72px}.hxc{padding:24px 18px}.hxopts,.hxopts.three{grid-template-columns:1fr}.hxcal{grid-template-columns:1fr}.hxn .btn{min-width:0}.hxbox{padding:18px}}
+/* ---- ERA admin console ---- */
+#adm{position:fixed;inset:0;z-index:60;display:grid;grid-template-rows:64px minmax(0,1fr);grid-template-columns:minmax(0,1fr);background:var(--bg);color:var(--fg);font-size:15px;--bg:#EFEBE4;--fg:#1A1A1A;--mute:#6B6862;--rule:rgba(26,26,26,.14);--card:#fff;padding-top:env(safe-area-inset-top,0px)}
+body:has(#adm:not([hidden])){overflow:hidden}
+.atop{grid-row:1;background:#1A1A1A;color:#F8F5F0;display:flex;align-items:center;gap:20px;padding:0 24px;min-width:0}
+.abrand{display:flex;align-items:center;gap:14px}
+.abrand svg{width:30px;height:27px;color:#F8F5F0;flex:none}
+.abrand b{font:800 22px Manrope,sans-serif;letter-spacing:.34em;margin-right:-.34em}
+.abadge{background:#EB5128;color:#fff;font:700 11px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:5px 9px}
+.astat{margin:0 auto;display:flex;align-items:center;gap:10px;font:600 12px Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#cfcac2}
+.astat i{width:8px;height:8px;border-radius:50%;background:#2fb67c}
+.astat.off i{background:#EB5128}
+.aright{display:flex;gap:10px;align-items:center}
+#aact{display:flex;gap:10px}
+.atop .btn{padding:9px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.atop .btn.line{background:transparent;color:#F8F5F0;border-color:rgba(248,245,240,.45)}
+.ashell{grid-row:2;display:grid;grid-template-columns:264px minmax(0,1fr);min-height:0}
+.aside{background:#1A1A1A;color:#F8F5F0;overflow:auto;padding:14px 0 28px}
+.agrp{font:700 11px Manrope,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#7d7a74;padding:20px 28px 8px;margin:0}
+.aside button{display:flex;align-items:center;gap:14px;width:100%;padding:14px 28px;background:none;border:0;border-left:3px solid transparent;color:#cfcac2;font:600 13px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;text-align:left}
+.aside button::before{content:"";flex:none;width:7px;height:7px;background:currentColor;opacity:.65;transform:rotate(45deg)}
+.aside button:hover{color:#fff;background:rgba(255,255,255,.04)}
+.aside button[aria-selected=true]{color:#fff;background:rgba(255,255,255,.08);border-left-color:#EB5128}
+.aside button:focus-visible{outline:2px solid #EB5128;outline-offset:-2px}
+.aside em{margin-left:auto;font:700 12px Manrope,sans-serif;font-style:normal;letter-spacing:0;background:#C9B99A;color:#1A1A1A;border-radius:99px;min-width:24px;padding:2px 8px;text-align:center}
+.aside em:empty{display:none}
+.amain{overflow:auto;padding:36px 40px 90px;min-width:0}
+.apt h1{font:800 clamp(28px,3vw,40px) Manrope,sans-serif;letter-spacing:-.025em}
+.apt p{font:600 12px Manrope,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+.amain .ab{max-width:1180px;margin:26px 0 0;padding:0}
+#aedc,#app,#apr,#asb{background:var(--card);border:1px solid var(--rule);padding:26px!important}
+#aedc{max-width:900px!important}
+#alog{grid-row:2;align-self:center;justify-self:center;width:min(420px,92%);background:var(--card);border:1px solid var(--rule);padding:32px}
+#ast{position:fixed;right:24px;bottom:24px;z-index:70;background:#1A1A1A;color:#fff;padding:12px 18px;font-size:14px;max-width:min(420px,calc(100% - 48px));box-shadow:0 10px 30px rgba(0,0,0,.25)}
+#ast:empty{display:none}
+.sg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+.sc{background:#fff;border:1px solid var(--rule);padding:26px 24px}
+.sc b{display:block;font:800 clamp(30px,3vw,42px) Manrope,sans-serif;letter-spacing:-.03em;line-height:1}
+.sc span{display:block;margin-top:14px;font:700 11px Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#EB5128}
+.sc small{display:block;margin-top:6px;color:var(--mute);font-size:14px}
+.acd{background:#fff;border:1px solid var(--rule);margin-top:24px;min-width:0}
+.acd>h3{display:flex;justify-content:space-between;align-items:center;gap:12px;font:700 12px Manrope,sans-serif;letter-spacing:.26em;text-transform:uppercase;padding:22px 26px;border-bottom:1px solid var(--rule)}
+.acd>h3 a{font-size:11px;letter-spacing:.16em;color:#EB5128;text-decoration:none}
+.abd{padding:20px 26px}
+.ag2{display:grid;grid-template-columns:1.15fr 1fr;gap:24px}
+.ag2 .acd{margin-top:24px}
+.fbr{display:grid;grid-template-columns:120px minmax(0,1fr) 36px;gap:14px;align-items:center;margin:12px 0;font-size:14px}
+.fbr b{text-align:right}
+.fb{height:10px;background:#EFEBE4}
+.fb i{display:block;height:100%;background:#EB5128}
+.at{width:100%;border-collapse:collapse;font-size:15px}
+.at th{text-align:left;font:700 11px Manrope,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);padding:14px 26px}
+.at td{padding:16px 26px;border-top:1px solid var(--rule);vertical-align:top}
+.at tbody tr{cursor:pointer}.at tbody tr:hover{background:#FAF8F4}
+.at .mu,.mu{color:var(--mute);font-size:14px}
+.sb{display:inline-block;font:700 11px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:6px 10px;background:#eee;color:#666;white-space:nowrap}
+.s-new{background:#FBF0D5;color:#8a6a12}.s-contacted{background:#E3EAF3;color:#3d5a80}.s-call_booked{background:#E4F2EA;color:#2f7a52}.s-proposal_sent{background:#EEE6F5;color:#6b4a8a}.s-won{background:#D6EFE0;color:#1f6b45}.s-lost{background:#EEE;color:#777}
+.cr{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 26px;border-top:1px solid var(--rule)}
+.cr:first-child{border-top:0}
+.cr .cw{flex:1;min-width:200px}
+.cr .btn{padding:8px 14px;font-size:12px}
+.okrow{display:flex;align-items:center;gap:10px;font:700 13px Manrope,sans-serif;letter-spacing:.18em;color:#1f6b45}
+.okrow i{width:9px;height:9px;border-radius:50%;background:#2fb67c}
+.achips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.achip{margin:0;padding:8px 14px;border:1.5px solid var(--rule);background:#fff;color:var(--fg);font:600 13px Manrope,sans-serif;cursor:pointer}
+.achip.on{background:#1A1A1A;border-color:#1A1A1A;color:#fff}
+#alp .tb input{width:min(320px,100%);margin:0;background:#fff}
+.lr{display:grid;grid-template-columns:1.1fr 1.2fr 1fr 170px;gap:18px;align-items:start;background:#fff;border:1px solid var(--rule);padding:18px 22px;margin-bottom:12px;font-size:14px;line-height:1.5}
+.lr b{font-size:16px}
+.lr a{color:inherit}
+.lr select{width:100%}
+.tag{display:inline-block;margin-left:8px;background:#EB5128;color:#fff;font:700 10px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:3px 7px;vertical-align:middle}
+.ld{grid-column:1/-1;border:0!important;border-top:1px dashed var(--rule)!important;padding:10px 0 0!important}
+.ld summary{font-size:13px!important;font-weight:700;color:var(--mute)}
+.ld p{white-space:pre-wrap;margin:12px 0;color:var(--fg)}
+.ld textarea{margin-top:6px}
+.ld .del{margin-top:10px;background:none;border:0;color:var(--mute);text-decoration:underline;cursor:pointer;font-size:13px;padding:0}
+@media(max-width:1100px){.sg{grid-template-columns:repeat(3,minmax(0,1fr))}.ag2{grid-template-columns:1fr}.lr{grid-template-columns:1fr 1fr}}
+@media(max-width:860px){
+  #adm{grid-template-rows:56px minmax(0,1fr)}
+  .atop{padding:0 12px;gap:10px}.astat,.abadge{display:none}.atop .btn{padding:8px 10px;font-size:11px;letter-spacing:.08em;white-space:nowrap}.aright{margin-left:auto}.abrand b{font-size:18px}
+  .ashell{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr)}
+  .aside{display:flex;overflow-x:auto;padding:0}.agrp{display:none}
+  .aside button{width:auto;flex:none;padding:14px 16px;border-left:0;border-bottom:3px solid transparent;white-space:nowrap}
+  .aside button::before{display:none}.aside button[aria-selected=true]{border-bottom-color:#EB5128}
+  .amain{padding:22px 16px 80px}
+  .sg{grid-template-columns:1fr 1fr}.lr{grid-template-columns:1fr}
+  .at th:nth-child(3),.at td:nth-child(3),.at th:nth-child(4),.at td:nth-child(4){display:none}
+  .at th,.at td{padding-left:16px;padding-right:16px}
+}
 </style>
 </head>
 <body id="top">
@@ -530,7 +607,7 @@ a.pl:active img{filter:none;opacity:1}
 <div class="two"><div><label for="hx-co">Company name *</label><input id="hx-co" autocomplete="organization"></div>
 <div><label for="hx-ind">Industry *</label><select id="hx-ind"><option value="">Select industry</option><option>E-commerce</option><option>Fashion &amp; retail</option><option>Food &amp; beverage</option><option>Real estate</option><option>Healthcare</option><option>Education</option><option>Technology / SaaS</option><option>Finance</option><option>Services</option><option>Other</option></select></div></div>
 <label for="hx-brief">Company brief *</label><small>What you provide and who your target customers are.</small>
-<textarea id="hx-brief"></textarea>
+<textarea id="hx-brief" maxlength="600"></textarea>
 <label for="hx-link">Company link *</label><small>Website or main social media link.</small>
 <input id="hx-link" autocomplete="url" placeholder="https://">
 </div>
@@ -1161,16 +1238,33 @@ a.pl:active img{filter:none;opacity:1}
 <svg class="rkt" viewBox="0 0 32 48"><g class="rk"><g class="fw"><g class="fl"><path class="f1" d="M16 47C10.5 42 11 36.5 13.2 31.5H18.8C21 36.5 21.5 42 16 47Z"/><path class="f2" d="M16 43.5C13.5 40.5 14 37 14.8 33.5H17.2C18 37 18.5 40.5 16 43.5Z"/></g></g><circle class="sp s1" cx="12" cy="45" r="1.2"/><circle class="sp s2" cx="20" cy="46" r="1"/><path class="b" d="M10 24L3 34L10 32Z"/><path class="b" d="M22 24L29 34L22 32Z"/><path class="b" d="M16 0C22 8 24 18 22 30H10C8 18 10 8 16 0Z"/><path class="b" d="M12 30H20L18.5 33H13.5Z"/><circle cx="16" cy="14" r="3.4" fill="#F8F5F0" stroke="#1A1A1A" stroke-width="1.4"/></g></svg>
 </div>
 <aside id="adm" role="dialog" aria-label="ERA admin panel" hidden>
-<div class="ah"><b>ERA Admin</b><span id="aact" hidden><button class="btn sig" id="asave" type="button">Save changes</button><button class="btn line" id="aout" type="button">Sign out</button></span><button class="x" id="acl" type="button" aria-label="Close admin panel">&times;</button></div>
-<form id="alog" class="ab" hidden>
+<header class="atop">
+<div class="abrand"><svg viewBox="0 0 100 90" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M0 90L50 0L100 90ZM27 78L50 36L73 78Z"/><circle cx="50" cy="63" r="5.6" fill="#EB5128"/></svg><b>ERA</b><span class="abadge">Admin</span></div>
+<div class="astat" id="astat"><i></i><span id="atxt">Secure area</span></div>
+<div class="aright"><span id="aact" hidden><button class="btn sig" id="asave" type="button" hidden>Save changes</button><button class="btn line" id="aout" type="button">Sign out</button></span><button class="btn line" id="acl" type="button">&larr; Back to site</button></div>
+</header>
+<form id="alog" hidden>
 <h3>Admin sign in</h3><p style="color:var(--mute);margin-top:6px">Only emails enabled as admins can edit this site.</p>
 <label for="aem">Email</label><input id="aem" type="email" required autocomplete="username">
 <label for="apw">Password</label><input id="apw" type="password" required autocomplete="current-password">
 <button class="btn sig" type="submit" style="margin-top:18px">Sign in</button><p id="aer" role="alert" style="margin-top:12px"></p>
 </form>
-<div id="aed" hidden style="display:flex;flex-direction:column;flex:1;min-height:0">
-<div class="tabs" role="tablist"><button role="tab" id="tc" aria-selected="true">Content</button><button role="tab" id="tl" aria-selected="false">Leads</button><button role="tab" id="tp" aria-selected="false">Partners</button><button role="tab" id="tpr" aria-selected="false">Pricing</button><button role="tab" id="tsb" aria-selected="false">Emails</button></div>
-<div class="ab" id="aedc"></div>
+<div id="aed" class="ashell" hidden>
+<nav class="aside" role="tablist" aria-label="Admin sections">
+<p class="agrp">Overview</p>
+<button role="tab" id="td" aria-selected="true">Dashboard</button>
+<p class="agrp">Pipeline</p>
+<button role="tab" id="tl" aria-selected="false">Leads <em id="bl"></em></button>
+<button role="tab" id="tsb" aria-selected="false">Emails <em id="bs"></em></button>
+<p class="agrp">Site</p>
+<button role="tab" id="tc" aria-selected="false">Content</button>
+<button role="tab" id="tp" aria-selected="false">Partners</button>
+<button role="tab" id="tpr" aria-selected="false">Pricing</button>
+</nav>
+<main class="amain" id="amain">
+<div class="apt"><h1 id="apt-t">Dashboard</h1><p id="apt-s"></p></div>
+<div class="ab" id="adb"></div>
+<div class="ab" id="aedc" hidden></div>
 <div class="ab" id="app" hidden>
 <div class="pdz" id="pdz">Drop logos here, or use the button. PNG, JPG, WebP or SVG with a transparent or white background works best.</div>
 <div class="tb"><span id="pcnt"></span><button class="btn sig" id="padd" type="button">Add logos</button></div>
@@ -1189,7 +1283,12 @@ a.pl:active img{filter:none;opacity:1}
 <div id="prl"></div><div class="ap-s" id="prs" hidden></div>
 <button class="btn sig" id="prsave" type="button" style="margin-top:18px;width:100%">Save prices</button>
 </div>
-<div class="ab" id="alp" hidden><div class="tb"><span id="acnt"></span><button class="btn line" id="aref" type="button">Refresh</button><button class="btn line" id="acsv" type="button">Export CSV</button></div><div id="alst"></div></div>
+<div class="ab" id="alp" hidden>
+<div class="tb"><span id="acnt"></span><input id="lq" type="search" placeholder="Search name, email, company" aria-label="Search leads"><button class="btn line" id="aref" type="button">Refresh</button><button class="btn line" id="acsv" type="button">Export CSV</button></div>
+<div class="achips" id="lch"></div>
+<div id="alst"></div>
+</div>
+</main>
 </div>
 <div id="ast" role="status"></div>
 </aside>
@@ -1302,7 +1401,7 @@ async function tok(){
     if(!r.ok){keep(null);return null}keep(mkS(await r.json(),S));return S.at}catch(e){return null}
 }
 async function isAdmin(t){try{const r=await fetch(API+'/rest/v1/rpc/is_admin',{method:'POST',headers:H(t),body:'{}'});return r.ok&&(await r.json())===true}catch(e){return false}}
-const st=(m,bad)=>{$('ast').textContent=m||'';$('ast').style.color=bad?'var(--sig)':'inherit'};
+const st=(m,bad)=>{$('ast').textContent=m||'';$('ast').style.color=bad?'#ff9a7c':'#fff'};
 
 /* ---- admin: open with 5 clicks on the logo ---- */
 let c=0,tm;
@@ -1319,7 +1418,7 @@ async function openAdm(){
   if(t&&await isAdmin(t)){showEd()}else{showLogin()}
 }
 function showLogin(){$('alog').hidden=false;$('aed').hidden=true;$('aact').hidden=true;$('aem').focus()}
-function showEd(){$('alog').hidden=true;$('aed').hidden=false;$('aact').hidden=false;buildEd();tab('c')}
+function showEd(){$('alog').hidden=true;$('aed').hidden=false;$('aact').hidden=false;buildEd();tab('d')}
 
 $('alog').addEventListener('submit',async e=>{
   e.preventDefault();$('aer').textContent='';const email=$('aem').value.trim();
@@ -1372,23 +1471,89 @@ $('asave').onclick=async()=>{
 $('aref').onclick=loadLeads;
 const STS=['new','contacted','call_booked','proposal_sent','won','lost'];let L=[];
 async function patch(id,body){const tk=await tok();const r=await fetch(API+'/rest/v1/leads?id=eq.'+id,{method:'PATCH',headers:Object.assign(H(tk),{Prefer:'return=minimal'}),body:JSON.stringify(body)});st(r.ok?'Lead updated.':'Update failed ('+r.status+').',!r.ok)}
+const isHire=l=>/^HIRE ERA/.test(l.main_problem||'');
+const callOf=l=>{const m=/(?:Preferred call|Call): ([^|]+)/.exec(l.main_problem||'');return m?m[1].trim():''};
+const compOf=l=>{const m=/Company: ([^|]+)/.exec(l.main_problem||'');return m?m[1].trim():''};
+let LF='all',LQ='';
+function conn(ok){$('astat').className='astat'+(ok?'':' off');$('atxt').textContent=ok?'Connected':'Offline'}
+function badges(){const n=L.filter(l=>l.status==='new').length;$('bl').textContent=n||'';$('bs').textContent=SUBS.filter(x=>!x.unsubscribed).length||''}
+const sbadge=s=>mk('span',{className:'sb s-'+s,textContent:FR[s]||s});
+const fdate=v=>new Date(v).toLocaleDateString([],{day:'2-digit',month:'short',year:'numeric'});
+async function fetchLeads(){const tk=await tok();if(!tk){showLogin();return null}
+  try{const r=await fetch(API+'/rest/v1/leads?select=*&order=created_at.desc&limit=300',{headers:H(tk)});conn(r.ok);return r}catch(e){conn(false);return null}}
 async function loadLeads(){
   const box=$('alst');box.textContent='Loading...';
-  const tk=await tok();if(!tk){showLogin();return}
-  const r=await fetch(API+'/rest/v1/leads?select=*&order=created_at.desc&limit=300',{headers:H(tk)});
+  const r=await fetchLeads();if(!r){box.textContent='Could not reach the server.';return}
   if(!r.ok){box.textContent='Could not load leads ('+r.status+'). Did you run supabase_admin.sql?';return}
-  L=await r.json();box.replaceChildren();$('acnt').textContent=L.length+' leads';
-  L.forEach(l=>{
-    const card=mk('div',{className:'lc'});
-    card.append(mk('b',{textContent:l.name}),mk('div',{className:'mu',textContent:new Date(l.created_at).toLocaleString()+(l.package_interest?'  |  '+l.package_interest:'')}),
-      mk('div',{},mk('a',{href:'https://wa.me/'+l.phone.replace(/\D/g,''),target:'_blank',rel:'noopener',textContent:l.phone}),' | ',mk('a',{href:'mailto:'+l.email,textContent:l.email})),
-      mk('div',{className:'mu',textContent:[l.monthly_spend,l.main_problem,l.website,l.utm_source&&('utm: '+l.utm_source)].filter(Boolean).join(' | ')}));
-    const s=mk('select',{});STS.forEach(o=>s.append(mk('option',{value:o,textContent:o.replace('_',' '),selected:o===l.status})));
-    s.onchange=()=>patch(l.id,{status:s.value});
+  L=await r.json();badges();renderLeads();
+}
+function renderLeads(){
+  const box=$('alst');box.replaceChildren();
+  const cnt=s=>s==='all'?L.length:s==='hire'?L.filter(isHire).length:L.filter(l=>l.status===s).length;
+  const ch=$('lch');ch.replaceChildren();
+  [['all','All'],['new','Received'],['contacted','In touch'],['call_booked','Call booked'],['proposal_sent','Proposal'],['won','Active'],['lost','Closed'],['hire','Hire ERA']].forEach(([k,t])=>ch.append(mk('button',{type:'button',className:'achip'+(LF===k?' on':''),textContent:t+' '+cnt(k),onclick:()=>{LF=k;renderLeads()}})));
+  const q=LQ.toLowerCase();
+  const rows=L.filter(l=>(LF==='all'||(LF==='hire'?isHire(l):l.status===LF))&&(!q||[l.name,l.email,l.phone,l.main_problem,l.package_interest].join(' ').toLowerCase().includes(q)));
+  $('acnt').textContent=rows.length+' of '+L.length+' leads';
+  if(!rows.length){box.append(mk('p',{className:'mu',textContent:'No leads match.'}));return}
+  rows.forEach(l=>{
+    const row=mk('div',{className:'lr'});
+    const who=mk('div',{},mk('b',{textContent:l.name}));if(isHire(l))who.append(mk('span',{className:'tag',textContent:'Hire ERA'}));
+    who.append(mk('div',{className:'mu',textContent:new Date(l.created_at).toLocaleString([],{dateStyle:'medium',timeStyle:'short'})}));
+    if(compOf(l))who.append(mk('div',{className:'mu',textContent:compOf(l)}));
+    const ph=(l.phone||'').replace(/\D/g,'');
+    const con=mk('div',{},ph?mk('a',{href:'https://wa.me/'+ph,target:'_blank',rel:'noopener',textContent:l.phone}):mk('span',{textContent:'-'}),mk('br'),mk('a',{href:'mailto:'+l.email,textContent:l.email}));
+    const req=mk('div',{},mk('b',{textContent:l.package_interest||'-'}),mk('div',{className:'mu',textContent:[l.monthly_spend,callOf(l)&&('Call: '+callOf(l))].filter(Boolean).join(' | ')}));
+    const s=mk('select',{});STS.forEach(o=>s.append(mk('option',{value:o,textContent:FR[o]||o,selected:o===l.status})));
+    s.onchange=async()=>{await patch(l.id,{status:s.value});l.status=s.value;badges()};
     const n=mk('textarea',{rows:2,placeholder:'Notes',value:l.notes||''});n.onchange=()=>patch(l.id,{notes:n.value});
-    const x=mk('button',{className:'del',type:'button',textContent:'Delete lead',onclick:async()=>{if(!confirm('Delete this lead permanently?'))return;const t2=await tok();const r2=await fetch(API+'/rest/v1/leads?id=eq.'+l.id,{method:'DELETE',headers:H(t2)});if(r2.ok)card.remove();else st('Delete failed ('+r2.status+').',1)}});
-    card.append(s,n,x);box.append(card);
+    const x=mk('button',{className:'del',type:'button',textContent:'Delete lead',onclick:async()=>{if(!confirm('Delete this lead permanently?'))return;const t2=await tok();const r2=await fetch(API+'/rest/v1/leads?id=eq.'+l.id,{method:'DELETE',headers:H(t2)});if(r2.ok){L=L.filter(z=>z!==l);badges();renderLeads()}else st('Delete failed ('+r2.status+').',1)}});
+    const full=[(l.main_problem||'').split(' | ').join('\n'),l.website,l.utm_source&&('utm: '+l.utm_source)].filter(Boolean).join('\n');
+    const det=mk('details',{className:'ld'},mk('summary',{textContent:'Details & notes'}),mk('p',{textContent:full}),n,x);
+    row.append(who,con,req,s,det);box.append(row);
   });
+}
+$('lq').oninput=e=>{LQ=e.target.value;renderLeads()};
+/* ---- dashboard ---- */
+async function loadDash(){
+  const box=$('adb');box.textContent='Loading...';
+  const tk=await tok();if(!tk){showLogin();return}
+  try{
+    const [rl,rs]=await Promise.all([fetch(API+'/rest/v1/leads?select=*&order=created_at.desc&limit=300',{headers:H(tk)}),fetch(API+'/rest/v1/subscribers?select=*&order=created_at.desc&limit=2000',{headers:H(tk)})]);
+    conn(rl.ok);
+    if(!rl.ok){box.textContent='Could not load ('+rl.status+'). Did you run supabase_admin.sql?';return}
+    L=await rl.json();SUBS=rs.ok?await rs.json():[];badges();
+    box.replaceChildren(buildDash());
+  }catch(e){conn(false);box.textContent='Could not reach the server.'}
+}
+function buildDash(){
+  const day=864e5,now=Date.now(),cnt=s=>L.filter(l=>l.status===s).length;
+  const won=cnt('won'),lost=cnt('lost'),hire=L.filter(isHire),subs=SUBS.filter(x=>!x.unsubscribed).length;
+  const wk=L.filter(l=>now-new Date(l.created_at)<7*day).length;
+  const stat=(v,t,s)=>mk('div',{className:'sc'},mk('b',{textContent:v}),mk('span',{textContent:t}),mk('small',{textContent:s}));
+  const card=(t,body,act)=>mk('div',{className:'acd'},mk('h3',{},mk('span',{textContent:t}),...(act?[act]:[])),body);
+  const all=e=>mk('a',{href:'#',textContent:'View all',onclick:ev=>{ev.preventDefault();LF=e||'all';tab('l')}});
+  const frag=document.createDocumentFragment();
+  frag.append(mk('div',{className:'sg'},stat(L.length,'Total leads',wk+' in the last 7 days'),stat(cnt('new'),'Need a reply','Status: received'),stat(hire.length,'Hire ERA requests','Discovery calls requested'),stat(won,'Active clients',(won+lost)?Math.round(won/(won+lost)*100)+'% win rate':'Since launch'),stat(subs,'Subscribers','Newsletter')));
+  const max=Math.max(1,...STS.map(cnt));const fn=mk('div',{className:'abd'});
+  STS.forEach(s=>fn.append(mk('div',{className:'fbr'},mk('span',{textContent:FR[s]}),mk('div',{className:'fb'},mk('i',{style:'width:'+(cnt(s)/max*100)+'%'})),mk('b',{textContent:cnt(s)}))));
+  const pk={};L.forEach(l=>{const k=l.package_interest;if(k&&k!=='Not sure yet')pk[k]=(pk[k]||0)+1});
+  const pe=Object.entries(pk).sort((a,b)=>b[1]-a[1]).slice(0,6),pm=Math.max(1,...pe.map(x=>x[1]));const pb=mk('div',{className:'abd'});
+  if(!pe.length)pb.append(mk('p',{className:'mu',textContent:'No package requests yet.'}));
+  pe.forEach(([k,v])=>pb.append(mk('div',{className:'fbr'},mk('span',{textContent:k}),mk('div',{className:'fb'},mk('i',{style:'width:'+(v/pm*100)+'%'})),mk('b',{textContent:v}))));
+  frag.append(mk('div',{className:'ag2'},card('Pipeline',fn),card('Package demand',pb)));
+  const cl=mk('div',{});const calls=hire.filter(l=>l.status!=='lost').slice(0,5);
+  if(!calls.length)cl.append(mk('p',{className:'mu abd',textContent:'No Hire ERA requests yet.'}));
+  calls.forEach(l=>{const ph=(l.phone||'').replace(/\D/g,'');
+    cl.append(mk('div',{className:'cr'},mk('div',{className:'cw'},mk('b',{textContent:l.name}),mk('div',{className:'mu',textContent:[callOf(l)||'No time chosen',compOf(l)].filter(Boolean).join(' | ')})),sbadge(l.status||'new'),ph?mk('a',{className:'btn line',href:'https://wa.me/'+ph,target:'_blank',rel:'noopener',textContent:'WhatsApp'}):mk('span')))});
+  frag.append(card('Discovery calls',cl,all('hire')));
+  const t=mk('table',{className:'at'});t.append(mk('thead',{},mk('tr',{},...['Lead','Contact','Package','Date','Status'].map(h=>mk('th',{textContent:h})))));
+  const tb=mk('tbody');L.slice(0,6).forEach(l=>tb.append(mk('tr',{onclick:()=>{LF='all';tab('l')}},mk('td',{},mk('b',{textContent:l.name}),...(isHire(l)?[mk('span',{className:'tag',textContent:'Hire ERA'})]:[])),mk('td',{},mk('div',{textContent:l.email}),mk('div',{className:'mu',textContent:l.phone||''})),mk('td',{textContent:l.package_interest||'-'}),mk('td',{textContent:fdate(l.created_at)}),mk('td',{},sbadge(l.status||'new')))));
+  t.append(tb);const wrap=mk('div',{style:'overflow-x:auto'},t);
+  if(!L.length)wrap.replaceChildren(mk('p',{className:'mu abd',textContent:'No leads yet.'}));
+  frag.append(card('Recent leads',wrap,all()));
+  frag.append(card('Backend status',mk('div',{className:'abd'},mk('div',{className:'okrow'},mk('i'),mk('span',{textContent:'CONNECTED'})),mk('p',{className:'mu',style:'margin-top:10px',textContent:'Live Supabase database. Every lead, price, partner logo and text edit is saved to the cloud in real time.'}))));
+  return frag;
 }
 $('acsv').onclick=()=>{
   const cols=['created_at','name','email','phone','website','monthly_spend','main_problem','package_interest','status','notes','utm_source','utm_medium','utm_campaign'];
@@ -1697,11 +1862,13 @@ const subList=()=>SUBS.filter(x=>!x.unsubscribed).map(x=>x.email);
 $('sbcp').onclick=async()=>{try{await navigator.clipboard.writeText(subList().join(', '));st('Copied '+subList().length+' emails.')}catch(e){st('Could not copy. Use Download CSV.',1)}};
 $('sbcsv').onclick=()=>{const rows=['email,date,source'].concat(SUBS.filter(x=>!x.unsubscribed).map(x=>[x.email,(x.created_at||'').slice(0,10),x.source||''].map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')));
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([rows.join('\n')],{type:'text/csv'}));a.download='era-subscribers.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+const TT={d:['Dashboard','ERA \u00b7 live agency overview'],l:['Leads','Pipeline \u00b7 every request from the site'],s:['Emails','Pipeline \u00b7 newsletter subscribers'],c:['Content','Site \u00b7 edit text and contact details'],p:['Partners','Site \u00b7 client and partner logos'],r:['Pricing','Site \u00b7 private package prices']};
 function tab(w){
-  [['c','aedc','tc'],['l','alp','tl'],['p','app','tp'],['r','apr','tpr'],['s','asb','tsb']].forEach(([k,pane,btn])=>{$(pane).hidden=k!==w;$(btn).setAttribute('aria-selected',k===w)});
-  if(w==='l')loadLeads();if(w==='p')buildPd();if(w==='r')loadPr();if(w==='s')loadSubs();
+  [['d','adb','td'],['l','alp','tl'],['s','asb','tsb'],['c','aedc','tc'],['p','app','tp'],['r','apr','tpr']].forEach(([k,pane,btn])=>{$(pane).hidden=k!==w;$(btn).setAttribute('aria-selected',k===w)});
+  $('apt-t').textContent=TT[w][0];$('apt-s').textContent=TT[w][1];$('asave').hidden=w!=='c';$('amain').scrollTop=0;
+  if(w==='d')loadDash();if(w==='l')loadLeads();if(w==='p')buildPd();if(w==='r')loadPr();if(w==='s')loadSubs();
 }
-$('tc').onclick=()=>tab('c');$('tl').onclick=()=>tab('l');$('tp').onclick=()=>tab('p');$('tpr').onclick=()=>tab('r');$('tsb').onclick=()=>tab('s');
+$('td').onclick=()=>tab('d');$('tc').onclick=()=>tab('c');$('tl').onclick=()=>tab('l');$('tp').onclick=()=>tab('p');$('tpr').onclick=()=>tab('r');$('tsb').onclick=()=>tab('s');
 </script>
 <script>
 /* ---- Hire ERA: 5-step request + discovery call booking ---- */
@@ -1807,18 +1974,26 @@ $('tc').onclick=()=>tab('c');$('tl').onclick=()=>tab('l');$('tp').onclick=()=>ta
     const lines=['Hi ERA, I would like to hire ERA.','Name: '+d.name,'Job title: '+(d.role||'-'),'Email: '+d.email,'WhatsApp: '+d.phone,'Company: '+d.co+' ('+d.ind+')','Link: '+d.link,'Brief: '+d.brief,'Objective: '+d.obj,'Support: '+d.sup,'Package: '+d.pkg,'Monthly budget: '+d.bud,'Decision-maker: '+d.dm,'Heard about ERA via: '+d.src,'Preferred call: '+when];
     const wa=waLink(lines.join('\n'));
     const q=new URLSearchParams(location.search);
-    const row={name:d.name,email:d.email,phone:d.phone,website:d.link,monthly_spend:d.bud,
-      main_problem:'HIRE ERA REQUEST | Preferred call: '+when+' | Company: '+d.co+' ('+d.ind+') | Brief: '+d.brief+' | Objective: '+d.obj+' | Support: '+d.sup+' | Decision-maker: '+d.dm+' | Heard via: '+d.src+(d.role?' | Job title: '+d.role:''),
-      package_interest:d.pkg,utm_source:q.get('utm_source'),utm_medium:q.get('utm_medium'),utm_campaign:q.get('utm_campaign'),page_url:location.href.slice(0,500)};
+    const short=('HIRE ERA | Call: '+fmt(sel.u,{weekday:'short',day:'numeric',month:'short'})+' '+t12(sel.t)+' | '+d.obj+' | '+d.sup+' | '+d.co+' ('+d.ind+') | Decision: '+d.dm+' | Via: '+d.src);
+    const base={name:d.name,email:d.email,phone:d.phone,website:d.link.slice(0,200),monthly_spend:d.bud,package_interest:d.pkg,utm_source:q.get('utm_source'),utm_medium:q.get('utm_medium'),utm_campaign:q.get('utm_campaign'),page_url:location.href.slice(0,500)};
+    const full=('HIRE ERA REQUEST | Preferred call: '+when+' | Company: '+d.co+' ('+d.ind+') | Brief: '+d.brief+' | Objective: '+d.obj+' | Support: '+d.sup+' | Decision-maker: '+d.dm+' | Heard via: '+d.src+(d.role?' | Job title: '+d.role:'')).slice(0,1400);
+    /* richest row first (needs main_problem limit raised in Supabase); leaner rows below keep the lead from being lost if the limit is still 200 */
+    const tiers=[Object.assign({},base,{main_problem:full}),Object.assign({},base,{main_problem:short.slice(0,195)}),Object.assign({},base,{main_problem:short.slice(0,100)}),Object.assign({},base,{main_problem:'HIRE ERA | '+fmt(sel.u,{day:'numeric',month:'short'})+' '+t12(sel.t),website:null})];
     try{
-      const tk=await tok();if(tk&&S&&S.uid)row.user_id=S.uid;
-      const r=await fetch(API+'/rest/v1/leads',{method:'POST',headers:Object.assign(H(tk),{Prefer:'return=minimal'}),body:JSON.stringify(row)});
-      if(!r.ok)throw new Error(r.status);
+      const tk=await tok();let ok=false,why='';
+      for(const row of tiers){
+        if(tk&&S&&S.uid)row.user_id=S.uid;
+        const r=await fetch(API+'/rest/v1/leads',{method:'POST',headers:Object.assign(H(tk),{Prefer:'return=minimal'}),body:JSON.stringify(row)});
+        if(r.ok){ok=true;break}
+        try{why=r.status+' '+(await r.text()).slice(0,200)}catch(e){why=String(r.status)}
+        console.error('Hire ERA lead insert failed',why);
+      }
+      if(!ok)throw new Error(why);
       done=true;$('hx-form').hidden=true;$('hx-done').hidden=false;$('hx-when').textContent=when;
       $('hx-dmsg').textContent='Thanks, '+d.name+'. Your request is in and we will confirm your call time on WhatsApp or email within one business day.';
       $('hx-wa').href=wa;$('hx-st').hidden=true;$('hx-sl').hidden=true;scrollTo({top:0,behavior:'auto'});
     }catch(x){
-      err('We could not save your request. Please send it on WhatsApp instead: tap the button below.');
+      err('We could not save your request ('+String(x.message||x).slice(0,160)+'). Please send it on WhatsApp instead: tap the button below.');
       const a=document.createElement('a');a.href=wa;a.target='_blank';a.rel='noopener';a.textContent=' Message us on WhatsApp';a.style.fontWeight='700';$('hx-err').append(a);
     }
     btn.disabled=false;btn.textContent=label;
