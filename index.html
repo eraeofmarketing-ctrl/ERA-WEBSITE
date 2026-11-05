@@ -1054,22 +1054,20 @@ f.addEventListener('submit',async e=>{
   btn.disabled=false;btn.textContent=label;
 });
 
-/* ---- timed consultation popup: appears 20 seconds after the page opens ---- */
+/* ---- timed consultation popup: appears 15 seconds after the page opens, on every visit ---- */
 (()=>{
-  const po=$('po'),pf=$('pof'),KEY='era_popup',DAY=864e5,m=$('po-m');let from=null,shown=false;
-  const mute=days=>{try{localStorage.setItem(KEY,JSON.stringify({until:Date.now()+days*DAY}))}catch(e){}};
-  const muted=()=>{try{const r=JSON.parse(localStorage.getItem(KEY)||'null');return !!(r&&r.until>Date.now())}catch(e){return false}};
+  const po=$('po'),pf=$('pof'),m=$('po-m');let from=null,shown=false;
   const busy=()=>!!document.querySelector('.ov:not([hidden]):not(#po),#adm:not([hidden]),#ab:not([hidden])');
   const typing=()=>{const a=document.activeElement;return !!(a&&a.closest&&a.closest('#f,#adm'))||['n','e','p'].some(id=>$(id).value.trim())};
   const msg=(t,bad)=>{m.hidden=false;m.textContent=t;m.style.color=bad?'var(--sig)':'inherit'};
-  function close(days){if(po.hidden)return;po.hidden=true;document.body.style.overflow='';mute(days==null?7:days);if(from&&from.focus)from.focus()}
+  function close(){if(po.hidden)return;po.hidden=true;document.body.style.overflow='';if(from&&from.focus)from.focus()}
   function show(){shown=true;from=document.activeElement;const w=waLink('Hi ERA, I would like a quick free consultation.');$('po-w').href=w;$('po-dw').href=w;po.hidden=false;document.body.style.overflow='hidden';setTimeout(()=>$('po-e').focus(),60)}
   function fire(){
-    if(shown||muted()||/[?&]nopopup\b/.test(location.search))return;
+    if(shown||/[?&]nopopup\b/.test(location.search))return;
     if(typing())return; /* never interrupt someone who is already filling the form */
     if(document.hidden||busy()){setTimeout(fire,3000);return} /* wait until the visitor can actually see it */
     show()}
-  setTimeout(fire,20000);
+  setTimeout(fire,15000);
   $('poc').onclick=()=>close();
   po.addEventListener('click',e=>{if(e.target===po)close()});
   po.addEventListener('keydown',e=>{
@@ -1092,7 +1090,7 @@ f.addEventListener('submit',async e=>{
       const r=await fetch(API+'/rest/v1/leads',{method:'POST',headers:Object.assign(H(tk),{Prefer:'return=minimal'}),body:JSON.stringify(row)});
       if(!r.ok)throw new Error(r.status);
       if(news){try{await fetch(API+'/rest/v1/subscribers?on_conflict=email',{method:'POST',headers:Object.assign(H(),{Prefer:'resolution=ignore-duplicates,return=minimal'}),body:JSON.stringify({email:em.toLowerCase(),source:'popup',page_url:location.href.slice(0,500),consent_text:'Send me ERA marketing news and insights by email.'})})}catch(x){}}
-      mute(90);pf.hidden=true;$('po-d').hidden=false;
+      pf.hidden=true;$('po-d').hidden=false;
       $('po-dt').textContent=urgent?'Marked as urgent.':'Thank you.';
       $('po-dp').textContent=(urgent?'Your request is in and our team will reach out to you first.':'Your request is in. We will contact you to set up your 30-minute call, usually within one business day.')+(news?' You will also get ERA’s marketing news and insights by email.':'');
     }catch(err){msg('We could not send your request. Please message us on WhatsApp instead.',1);btn.disabled=false;btn.textContent=label}
