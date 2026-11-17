@@ -565,6 +565,29 @@ body:has(#adm:not([hidden])){overflow:hidden}
   .at th:nth-child(3),.at td:nth-child(3),.at th:nth-child(4),.at td:nth-child(4){display:none}
   .at th,.at td{padding-left:16px;padding-right:16px}
 }
+/* ---- typography: slightly smaller text, wider lines ---- */
+body{font-size:16px}
+.w{max-width:1240px}
+h2{font-size:clamp(26px,3.5vw,42px);max-width:26ch}
+h3{font-size:20px}
+.lead{font-size:16.5px;max-width:70ch}
+.hero p{font-size:18px;max-width:62ch}
+details p{font-size:15.5px;max-width:82ch}
+summary{font-size:17.5px}
+.q{font-size:clamp(18px,2vw,23px)}
+.pc h3{font-size:22px}
+.pc .m,.pn{font-size:14.5px}
+.svc li,.pc li,.steps span,.st span{font-size:14.5px}
+.ind h3{font-size:clamp(20px,2vw,24px)}
+.ind .m,.ind-b .m{max-width:56ch;font-size:14.5px}
+.ind-note p{max-width:60ch;font-size:clamp(16px,1.8vw,20px)}
+.ind-b h3{font-size:clamp(20px,2.1vw,26px)}
+.abs .hh{font-size:clamp(32px,6vw,76px);max-width:22ch}
+.abs .sub{font-size:clamp(16px,1.9vw,21px);max-width:42em}
+.cp{font-size:clamp(16px,1.6vw,19px);max-width:48em}
+.cq{font-size:clamp(22px,3.2vw,42px);max-width:28em}
+.fp{font-size:clamp(16px,1.7vw,19px);max-width:48em}
+@media(min-width:861px){h1{font-size:clamp(34px,5.2vw,70px)}}
 </style>
 </head>
 <body id="top">
@@ -1266,12 +1289,12 @@ body:has(#adm:not([hidden])){overflow:hidden}
 <div class="ab" id="adb"></div>
 <div class="ab" id="aedc" hidden></div>
 <div class="ab" id="app" hidden>
-<div class="pdz" id="pdz">Drop logos here, or use the button. PNG, JPG, WebP or SVG with a transparent or white background works best.</div>
-<div class="tb"><span id="pcnt"></span><button class="btn sig" id="padd" type="button">Add logos</button></div>
+<div class="pdz" id="pdz">Drop logos here, or use the button. PNG, JPG, WebP or SVG up to 25 MB. A transparent or white background works best.</div>
+<div class="tb"><span id="pcnt"></span><button class="btn line" id="padd" type="button">Add logos</button><button class="btn sig" id="psave" type="button">Save &amp; publish</button></div>
 <label class="ck"><input type="checkbox" id="pcol"> Always show logos in color (default is grey, color on hover)</label>
 <input type="file" id="pfile" accept="image/png,image/jpeg,image/webp,image/svg+xml" multiple hidden>
 <div id="pdl"></div>
-<p class="mu" style="font-size:13px;color:var(--mute)">Changes are live after you press <b>Save changes</b> at the top. The Partners section stays hidden until you add at least one logo.</p>
+<p class="mu" style="font-size:13px;color:var(--mute)">Changes go live on the website after you press <b>Save &amp; publish</b>. The Partners section stays hidden until you add at least one logo.</p>
 </div>
 <div class="ab" id="asb" hidden>
 <p class="mu" style="font-size:13px;color:var(--mute)">People who ticked the marketing news box in the popup. Copy the list into your email tool.</p>
@@ -1771,9 +1794,15 @@ function renderPartners(){
 
 function prep(f){return new Promise(async(res,rej)=>{
   try{
-    if(f.type==='image/svg+xml'){if(f.size>300000)return rej(new Error('SVG is larger than 300 KB'));return res({blob:f,type:'image/svg+xml',ext:'svg'})}
-    if(f.size>12000000)return rej(new Error('Image is larger than 12 MB'));
-    const bm=await createImageBitmap(f),s=Math.min(1,640/bm.width,320/bm.height);
+    if(f.size>25000000)return rej(new Error('File is larger than 25 MB'));
+    if(f.type==='image/svg+xml'&&f.size<=300000)return res({blob:f,type:'image/svg+xml',ext:'svg'});
+    let bm;
+    if(f.type==='image/svg+xml'){
+      /* large SVGs are converted to a light WebP so the site stays fast */
+      const u=URL.createObjectURL(f),im=new Image();
+      try{im.src=u;await im.decode();bm=await createImageBitmap(im,{resizeWidth:Math.min(1280,im.naturalWidth||640),resizeHeight:Math.min(640,im.naturalHeight||320)})}finally{URL.revokeObjectURL(u)}
+    }else bm=await createImageBitmap(f);
+    const s=Math.min(1,640/bm.width,320/bm.height);
     const c=document.createElement('canvas');c.width=Math.max(1,Math.round(bm.width*s));c.height=Math.max(1,Math.round(bm.height*s));
     c.getContext('2d').drawImage(bm,0,0,c.width,c.height);
     c.toBlob(b=>{if(!b)return rej(new Error('Could not process the image'));res({blob:b,type:b.type,ext:b.type==='image/png'?'png':'webp'})},'image/webp',.92);
@@ -1811,7 +1840,7 @@ function buildPd(){
     box.append(mk('div',{className:'pr'},mk('div',{className:'th'},mk('img',{src:it.src,alt:''})),mk('div',{},n,u),mk('div',{className:'ac'},b1,b2,del)));
   });
 }
-$('padd').onclick=()=>$('pfile').click();
+$('padd').onclick=()=>$('pfile').click();$('psave').onclick=()=>$('asave').click();
 $('pfile').onchange=e=>{const f=[...e.target.files];e.target.value='';if(f.length)addLogos(f)};
 $('pcol').onchange=()=>{PD.color=$('pcol').checked;pdTouched=true;renderPartners()};
 const pz=$('pdz');
@@ -1865,7 +1894,7 @@ $('sbcsv').onclick=()=>{const rows=['email,date,source'].concat(SUBS.filter(x=>!
 const TT={d:['Dashboard','ERA \u00b7 live agency overview'],l:['Leads','Pipeline \u00b7 every request from the site'],s:['Emails','Pipeline \u00b7 newsletter subscribers'],c:['Content','Site \u00b7 edit text and contact details'],p:['Partners','Site \u00b7 client and partner logos'],r:['Pricing','Site \u00b7 private package prices']};
 function tab(w){
   [['d','adb','td'],['l','alp','tl'],['s','asb','tsb'],['c','aedc','tc'],['p','app','tp'],['r','apr','tpr']].forEach(([k,pane,btn])=>{$(pane).hidden=k!==w;$(btn).setAttribute('aria-selected',k===w)});
-  $('apt-t').textContent=TT[w][0];$('apt-s').textContent=TT[w][1];$('asave').hidden=w!=='c';$('amain').scrollTop=0;
+  $('apt-t').textContent=TT[w][0];$('apt-s').textContent=TT[w][1];$('asave').hidden=!(w==='c'||w==='p');$('amain').scrollTop=0;
   if(w==='d')loadDash();if(w==='l')loadLeads();if(w==='p')buildPd();if(w==='r')loadPr();if(w==='s')loadSubs();
 }
 $('td').onclick=()=>tab('d');$('tc').onclick=()=>tab('c');$('tl').onclick=()=>tab('l');$('tp').onclick=()=>tab('p');$('tpr').onclick=()=>tab('r');$('tsb').onclick=()=>tab('s');
